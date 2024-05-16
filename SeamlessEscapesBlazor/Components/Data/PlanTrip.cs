@@ -24,8 +24,8 @@ namespace SeamlessEscapes.Models
         [Required]
         public int NumberOfPeople { get; set; }
 
-        [Required]
-        public List<Intersts> Interests { get; set; } = new List<Intersts>();
+        //[Required]
+       // public List<Intersts> Interests { get; set; } = new List<Intersts>();
 
         public List<Itinerary> Itineraries { get; set; } = new List<Itinerary>();
     }
