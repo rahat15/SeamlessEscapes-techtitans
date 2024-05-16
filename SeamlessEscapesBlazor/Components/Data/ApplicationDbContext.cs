@@ -20,6 +20,7 @@ namespace SeamlessEscapes.Models
         public DbSet<Transport> Transports { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Road> Roads { get; set; }
+        public DbSet<Interest> Interests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
