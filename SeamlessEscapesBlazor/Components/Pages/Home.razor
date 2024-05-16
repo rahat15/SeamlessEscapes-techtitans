@@ -14,11 +14,11 @@
         </div>
         <div class="form-group">
             <label for="source">Source City:</label>
-            <InputText id="source" @bind-Value="bookingRequest.SourceCity" />
+            <InputText id="source" @bind-Value="bookingRequest.SourceCity" placeholder="Leaving from" />
         </div>
         <div class="form-group">
             <label for="destination">Destination City:</label>
-            <InputText id="destination" @bind-Value="bookingRequest.DestinationCity" />
+            <InputText id="destination" @bind-Value="bookingRequest.DestinationCity" placeholder="Going to" />
         </div>
         <div class="form-group">
             <label for="people">Number of People:</label>
@@ -39,13 +39,14 @@
     </EditForm>
 </div>
 
+
 @code {
     BookingRequest bookingRequest = new BookingRequest();
 
     public class BookingRequest
     {
-        public DateTime DepartureDate { get; set; }
-        public DateTime ArrivalDate { get; set; }
+        public DateTime DepartureDate { get; set; } = DateTime.Now;
+        public DateTime ArrivalDate { get; set; } = DateTime.Now;
         public string SourceCity { get; set; }
         public string DestinationCity { get; set; }
         public int NumberOfPeople { get; set; }
