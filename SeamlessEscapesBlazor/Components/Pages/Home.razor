@@ -1,16 +1,14 @@
 ﻿@page "/"
 
 <div class="body-background">
- 
-
     <EditForm Model="@bookingRequest">
         <div class="form-group">
             <label for="departure">Departure Date:</label>
-            <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" />
+            <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" min="@today" />
         </div>
         <div class="form-group">
             <label for="arrival">Arrival Date:</label>
-            <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" />
+            <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" min="@bookingRequest.DepartureDate.ToString("yyyy-MM-dd")" />
         </div>
         <div class="form-group">
             <label for="source">Source City:</label>
@@ -39,14 +37,14 @@
     </EditForm>
 </div>
 
-
 @code {
-    BookingRequest bookingRequest = new BookingRequest();
+    private BookingRequest bookingRequest = new BookingRequest();
+    private string today = DateTime.Now.ToString("yyyy-MM-dd");
 
     public class BookingRequest
     {
         public DateTime DepartureDate { get; set; } = DateTime.Now;
-        public DateTime ArrivalDate { get; set; } = DateTime.Now;
+        public DateTime ArrivalDate { get; set; } = DateTime.Now.AddDays(1);
         public string SourceCity { get; set; }
         public string DestinationCity { get; set; }
         public int NumberOfPeople { get; set; }
