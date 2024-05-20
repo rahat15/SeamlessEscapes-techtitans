@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\Data\NewFolder\**" />
+    <Content Remove="Components\Data\NewFolder\**" />
+    <EmbeddedResource Remove="Components\Data\NewFolder\**" />
+    <None Remove="Components\Data\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Components\Pages\Component.razor" />
+    <Content Remove="Components\Pages\Component1.razor" />
     <Content Remove="wwwroot\airports.json" />
   </ItemGroup>
 

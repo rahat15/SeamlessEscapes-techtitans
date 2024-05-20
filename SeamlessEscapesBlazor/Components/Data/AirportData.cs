@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using static SeamlessEscapesBlazor.Components.Pages.Home;
 
-namespace SeamlessEscapesBlazor.Data // Replace YourNamespace with your actual namespace
+namespace SeamlessEscapesBlazor.Components.Data // Replace YourNamespace with your actual namespace
 {
     public static class AirportData
     {

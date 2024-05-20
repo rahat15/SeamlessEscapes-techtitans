@@ -1,0 +1,55 @@
+﻿@page "/flights/{Source}/{Destination}"
+
+@inject FlightService FlightService
+
+@using SeamlessEscapesBlazor.Models
+
+
+<h3>Flights from @Source to @Destination</h3>
+
+@if (flights == null)
+{
+    <p><em>Loading flights...</em></p>
+}
+else if (flights.Count == 0)
+{
+    <p>No flights available for the selected route.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Flight Number</th>
+                <th>Airline</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var flight in flights)
+            {
+                <tr>
+                    <td>@flight.FlightNumber</td>
+                    <td>@flight.Airline</td>
+                    <td>@flight.DepartureTime.ToString("g")</td>
+                    <td>@flight.ArrivalTime.ToString("g")</td>
+                    <td>@flight.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter] public string Source { get; set; }
+    [Parameter] public string Destination { get; set; }
+    
+    private List<Flight> flights;
+
+    protected override async Task OnInitializedAsync()
+    {
+        flights = await FlightService.GetFlightsAsync(Source, Destination);
+    }
+}

@@ -1,16 +1,18 @@
 ﻿@page "/"
 
-@using SeamlessEscapesBlazor.Data 
+@using SeamlessEscapesBlazor.Components.Data 
 
 <EditForm Model="@bookingRequest">
     <div class="form-group">
         <label for="departure">Departure Date:</label>
         <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" min="@today" />
     </div>
+
     <div class="form-group">
         <label for="arrival">Arrival Date:</label>
         <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" />
     </div>
+
     <div class="form-group">
         <label for="source">Source City:</label>
         <select id="source" @bind="bookingRequest.SourceCity">
@@ -21,6 +23,7 @@
             }
         </select>
     </div>
+
     <div class="form-group">
         <label for="destination">Destination City:</label>
         <select id="destination" @bind="bookingRequest.DestinationCity">
@@ -31,10 +34,12 @@
             }
         </select>
     </div>
+
     <div class="form-group">
         <label for="people">Number of People:</label>
         <InputNumber id="people" @bind-Value="bookingRequest.NumberOfPeople" min="1" />
     </div>
+
     <div class="form-group">
         <label for="transport">Mode of Transport:</label>
         <InputSelect id="transport" @bind-Value="bookingRequest.TransportMode">
@@ -42,12 +47,21 @@
             <option value="Road">Road</option>
         </InputSelect>
     </div>
+
     <div class="form-group">
         <label for="interests">Interests:</label>
         <InputText id="interests" @bind-Value="bookingRequest.Interests" />
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button type="button" class="btn btn-primary" @onclick="SubmitForm">Submit</button>
+
+
 </EditForm>
+
+
+
+
+@inject NavigationManager NavigationManager
 
 @code {
     private BookingRequest bookingRequest = new BookingRequest();
@@ -70,4 +84,29 @@
     {
         Airports = AirportData.GetAirports();
     }
+
+    private void SubmitForm()
+    {
+        Console.WriteLine("SubmitForm method reached"); // Check if this gets printed in the browser's console
+
+        if (bookingRequest.ArrivalDate <= bookingRequest.DepartureDate)
+        {
+            Console.WriteLine("Validation failed: Arrival date must be after departure date.");
+            // You might want to add user-visible error messaging here
+        }
+        else
+        {
+            string destinationUrl = $"/flights/{Uri.EscapeDataString(bookingRequest.SourceCity)}/{Uri.EscapeDataString(bookingRequest.DestinationCity)}";
+            Console.WriteLine($"Navigating to URL: {destinationUrl}"); // Check the output
+            NavigationManager.NavigateTo(destinationUrl);
+        }
+    }
+
+
+    private bool ValidateInputs()
+    {
+        // Implement validation logic, for example:
+        return bookingRequest.ArrivalDate > bookingRequest.DepartureDate;
+    }
 }
+ 
