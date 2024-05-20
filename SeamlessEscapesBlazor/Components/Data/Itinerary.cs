@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 
 
-namespace SeamlessEscapes.Models
+namespace SeamlessEscapesBlazor.Models
 {
     public class Itinerary
     {

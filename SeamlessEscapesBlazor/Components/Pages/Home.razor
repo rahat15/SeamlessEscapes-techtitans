@@ -1,10 +1,6 @@
 ﻿@page "/"
 
-@using System.Text.Json
-@using System.Net.Http
-@using System.Threading.Tasks
-@inject HttpClient Http
-
+@using SeamlessEscapesBlazor.Data 
 
 <EditForm Model="@bookingRequest">
     <div class="form-group">
@@ -57,12 +53,6 @@
     private BookingRequest bookingRequest = new BookingRequest();
     private string today = DateTime.Now.ToString("yyyy-MM-dd");
 
-    public class AirportInfo
-    {
-        public string Code { get; set; }
-        public string Name { get; set; }
-    }
-
     public class BookingRequest
     {
         public DateTime DepartureDate { get; set; } = DateTime.Now;
@@ -74,12 +64,10 @@
         public string Interests { get; set; }
     }
 
-    private List<AirportInfo> Airports { get; set; } = new List<AirportInfo>();
+    private List<AirportInfo> Airports { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        using var httpClient = new HttpClient();
-        var json = await httpClient.GetStringAsync("airports.json");
-        Airports = JsonSerializer.Deserialize<List<AirportInfo>>(json);
+        Airports = AirportData.GetAirports();
     }
 }

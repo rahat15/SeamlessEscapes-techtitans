@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SeamlessEscapes.Models
+namespace SeamlessEscapesBlazor.Models
 {
     public class Flight : Transport
     {

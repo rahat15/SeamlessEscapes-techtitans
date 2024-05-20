@@ -1,4 +1,5 @@
-﻿namespace SeamlessEscapes.Models
+﻿
+namespace SeamlessEscapesBlazor.Models
 {
     public enum TransportType
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace SeamlessEscapes.Models
+namespace SeamlessEscapesBlazor.Models
 {
     public class ApplicationDbContext : DbContext
     {
