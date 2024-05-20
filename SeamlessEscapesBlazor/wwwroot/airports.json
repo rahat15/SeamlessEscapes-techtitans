@@ -1,0 +1,1358 @@
+[
+  {
+    "Code": "ABQ",
+    "Name": "Albuquerque International"
+  },
+  {
+    "Code": "ANC",
+    "Name": "Ted Stevens Anchorage International"
+  },
+  {
+    "Code": "ATL",
+    "Name": "William B Hartsfield-Atlanta Intl"
+  },
+  {
+    "Code": "AUS",
+    "Name": "Austin-Bergstrom International"
+  },
+  {
+    "Code": "BDL",
+    "Name": "Bradley International"
+  },
+  {
+    "Code": "BHM",
+    "Name": "Birmingham International"
+  },
+  {
+    "Code": "BNA",
+    "Name": "Nashville International"
+  },
+  {
+    "Code": "BOS",
+    "Name": "Gen Edw L Logan Intl"
+  },
+  {
+    "Code": "BUF",
+    "Name": "Buffalo Niagara Intl"
+  },
+  {
+    "Code": "BUR",
+    "Name": "Burbank-Glendale-Pasadena"
+  },
+  {
+    "Code": "BWI",
+    "Name": "Baltimore-Washington International"
+  },
+  {
+    "Code": "CHS",
+    "Name": "Charleston AFB International"
+  },
+  {
+    "Code": "CLE",
+    "Name": "Cleveland-Hopkins Intl"
+  },
+  {
+    "Code": "CLT",
+    "Name": "Charlotte Douglas International"
+  },
+  {
+    "Code": "CMH",
+    "Name": "Port Columbus Intl"
+  },
+  {
+    "Code": "CVG",
+    "Name": "Cincinnati Northern Kentucky Intl"
+  },
+  {
+    "Code": "DAL",
+    "Name": "Dallas Love"
+  },
+  {
+    "Code": "DCA",
+    "Name": "Ronald Reagan Washington National"
+  },
+  {
+    "Code": "DEN",
+    "Name": "Denver Intl"
+  },
+  {
+    "Code": "DFW",
+    "Name": "Dallas-Fort Worth International"
+  },
+  {
+    "Code": "DTW",
+    "Name": "Detroit Metropolitan-Wayne County"
+  },
+  {
+    "Code": "ELP",
+    "Name": "El Paso International"
+  },
+  {
+    "Code": "EWR",
+    "Name": "Newark Intl"
+  },
+  {
+    "Code": "FLL",
+    "Name": "Fort Lauderdale-Hollywood Int'l"
+  },
+  {
+    "Code": "HNL",
+    "Name": "Honolulu International"
+  },
+  {
+    "Code": "HOU",
+    "Name": "William P X"
+  },
+  {
+    "Code": "IAD",
+    "Name": "Washington Dulles International"
+  },
+  {
+    "Code": "IAH",
+    "Name": "George Bush Intercontinental"
+  },
+  {
+    "Code": "IND",
+    "Name": "Indianapolis International"
+  },
+  {
+    "Code": "JAX",
+    "Name": "Jacksonville International"
+  },
+  {
+    "Code": "JFK",
+    "Name": "John F Kennedy Intl"
+  },
+  {
+    "Code": "LAS",
+    "Name": "McCarran International"
+  },
+  {
+    "Code": "LAX",
+    "Name": "Los Angeles International"
+  },
+  {
+    "Code": "LGA",
+    "Name": "LaGuardia"
+  },
+  {
+    "Code": "LIT",
+    "Name": "Adams"
+  },
+  {
+    "Code": "MCI",
+    "Name": "Kansas City International"
+  },
+  {
+    "Code": "MCO",
+    "Name": "Orlando International"
+  },
+  {
+    "Code": "MDW",
+    "Name": "Chicago Midway"
+  },
+  {
+    "Code": "MEM",
+    "Name": "Memphis International"
+  },
+  {
+    "Code": "MIA",
+    "Name": "Miami International"
+  },
+  {
+    "Code": "MKE",
+    "Name": "General Mitchell International"
+  },
+  {
+    "Code": "MSP",
+    "Name": "Minneapolis-St Paul Intl"
+  },
+  {
+    "Code": "MSY",
+    "Name": "New Orleans International"
+  },
+  {
+    "Code": "OAK",
+    "Name": "Metropolitan Oakland International"
+  },
+  {
+    "Code": "OGG",
+    "Name": "Kahului"
+  },
+  {
+    "Code": "OKC",
+    "Name": "Will Rogers World"
+  },
+  {
+    "Code": "OMA",
+    "Name": "Eppley Airfield"
+  },
+  {
+    "Code": "ONT",
+    "Name": "Ontario International"
+  },
+  {
+    "Code": "ORD",
+    "Name": "Chicago O'Hare International"
+  },
+  {
+    "Code": "ORF",
+    "Name": "Norfolk International"
+  },
+  {
+    "Code": "PBI",
+    "Name": "Palm Beach International"
+  },
+  {
+    "Code": "PDX",
+    "Name": "Portland Intl"
+  },
+  {
+    "Code": "PHL",
+    "Name": "Philadelphia Intl"
+  },
+  {
+    "Code": "PHX",
+    "Name": "Phoenix Sky Harbor International"
+  },
+  {
+    "Code": "PIT",
+    "Name": "Pittsburgh International"
+  },
+  {
+    "Code": "PVD",
+    "Name": "Theodore F Green State"
+  },
+  {
+    "Code": "RDU",
+    "Name": "Raleigh-Durham International"
+  },
+  {
+    "Code": "RIC",
+    "Name": "Richmond International"
+  },
+  {
+    "Code": "RNO",
+    "Name": "Reno Tahoe International"
+  },
+  {
+    "Code": "RSW",
+    "Name": "Southwest Florida International"
+  },
+  {
+    "Code": "SAN",
+    "Name": "San Diego International-Lindbergh"
+  },
+  {
+    "Code": "SAT",
+    "Name": "San Antonio International"
+  },
+  {
+    "Code": "SDF",
+    "Name": "Louisville International-Standiford"
+  },
+  {
+    "Code": "SEA",
+    "Name": "Seattle-Tacoma Intl"
+  },
+  {
+    "Code": "SFO",
+    "Name": "San Francisco International"
+  },
+  {
+    "Code": "SJC",
+    "Name": "San Jose International"
+  },
+  {
+    "Code": "SJU",
+    "Name": "Luis Munoz Marin International"
+  },
+  {
+    "Code": "SLC",
+    "Name": "Salt Lake City Intl"
+  },
+  {
+    "Code": "SMF",
+    "Name": "Sacramento International"
+  },
+  {
+    "Code": "SNA",
+    "Name": "John Wayne Orange Co"
+  },
+  {
+    "Code": "STL",
+    "Name": "Lambert-St Louis International"
+  },
+  {
+    "Code": "TPA",
+    "Name": "Tampa International"
+  },
+  {
+    "Code": "TUL",
+    "Name": "Tulsa International"
+  },
+  {
+    "Code": "TUS",
+    "Name": "Tucson International"
+  },
+  {
+    "Code": "ABE",
+    "Name": "Lehigh Valley International"
+  },
+  {
+    "Code": "ABI",
+    "Name": "Abilene Regional"
+  },
+  {
+    "Code": "ABR",
+    "Name": "Aberdeen Regional"
+  },
+  {
+    "Code": "ABY",
+    "Name": "Southwest Georgia Regional"
+  },
+  {
+    "Code": "ACK",
+    "Name": "Nantucket Memorial"
+  },
+  {
+    "Code": "ACT",
+    "Name": "Waco Regional"
+  },
+  {
+    "Code": "ACY",
+    "Name": "Atlantic City International"
+  },
+  {
+    "Code": "ADK",
+    "Name": "Adak"
+  },
+  {
+    "Code": "ADQ",
+    "Name": "Kodiak"
+  },
+  {
+    "Code": "AEX",
+    "Name": "Alexandria International"
+  },
+  {
+    "Code": "AGS",
+    "Name": "Bush"
+  },
+  {
+    "Code": "AKN",
+    "Name": "King Salmon"
+  },
+  {
+    "Code": "ALB",
+    "Name": "Albany Cty"
+  },
+  {
+    "Code": "ALO",
+    "Name": "Waterloo Municipal"
+  },
+  {
+    "Code": "AMA",
+    "Name": "Amarillo International"
+  },
+  {
+    "Code": "APN",
+    "Name": "Alpena County Regional"
+  },
+  {
+    "Code": "ART",
+    "Name": "Watertown Intl"
+  },
+  {
+    "Code": "ASE",
+    "Name": "Aspen-Pitkin Co Sardy"
+  },
+  {
+    "Code": "ATW",
+    "Name": "Outagamie County Regional"
+  },
+  {
+    "Code": "AVL",
+    "Name": "Asheville Regional"
+  },
+  {
+    "Code": "AVP",
+    "Name": "Wilkes-Barre Scranton Intl"
+  },
+  {
+    "Code": "AZO",
+    "Name": "Kalamazoo County"
+  },
+  {
+    "Code": "BET",
+    "Name": "Bethel"
+  },
+  {
+    "Code": "BFL",
+    "Name": "Meadows"
+  },
+  {
+    "Code": "BGM",
+    "Name": "Binghamton Regional"
+  },
+  {
+    "Code": "BGR",
+    "Name": "Bangor International"
+  },
+  {
+    "Code": "BIL",
+    "Name": "Billings Logan Intl"
+  },
+  {
+    "Code": "BIS",
+    "Name": "Bismarck Municipal"
+  },
+  {
+    "Code": "BJI",
+    "Name": "Bemidji-Beltrami County"
+  },
+  {
+    "Code": "BLI",
+    "Name": "Bellingham Intl"
+  },
+  {
+    "Code": "BMI",
+    "Name": "Central Illinois Regional"
+  },
+  {
+    "Code": "BOI",
+    "Name": "Boise Air Terminal"
+  },
+  {
+    "Code": "BPT",
+    "Name": "Southeast Texas Regional"
+  },
+  {
+    "Code": "BQK",
+    "Name": "Glynco Jetport"
+  },
+  {
+    "Code": "BQN",
+    "Name": "Rafael Hernandez"
+  },
+  {
+    "Code": "BRD",
+    "Name": "Brainerd-Crow Wing County Regional"
+  },
+  {
+    "Code": "BRO",
+    "Name": "Brownsville S.Padre Island International"
+  },
+  {
+    "Code": "BRW",
+    "Name": "Wiley Post Will Rogers Memorial"
+  },
+  {
+    "Code": "BTM",
+    "Name": "Bert Mooney"
+  },
+  {
+    "Code": "BTR",
+    "Name": "Baton Rouge Metropolitan"
+  },
+  {
+    "Code": "BTV",
+    "Name": "Burlington International"
+  },
+  {
+    "Code": "BZN",
+    "Name": "Gallatin"
+  },
+  {
+    "Code": "CAE",
+    "Name": "Columbia Metropolitan"
+  },
+  {
+    "Code": "CAK",
+    "Name": "Akron-Canton Regional"
+  },
+  {
+    "Code": "CDC",
+    "Name": "Cedar City Muni"
+  },
+  {
+    "Code": "CDV",
+    "Name": "Merle K (Mudhole) Smith"
+  },
+  {
+    "Code": "CEC",
+    "Name": "Jack McNamara"
+  },
+  {
+    "Code": "CHA",
+    "Name": "Lovell"
+  },
+  {
+    "Code": "CHO",
+    "Name": "Charlottesville-Albermarle"
+  },
+  {
+    "Code": "CIC",
+    "Name": "Chico Municipal"
+  },
+  {
+    "Code": "CID",
+    "Name": "Eastern Iowa"
+  },
+  {
+    "Code": "CIU",
+    "Name": "Chippewa County International"
+  },
+  {
+    "Code": "CLD",
+    "Name": "MC Clellan-Palomar Airport"
+  },
+  {
+    "Code": "CLL",
+    "Name": "Easterwood"
+  },
+  {
+    "Code": "CMI",
+    "Name": "University of Illinois-Willard"
+  },
+  {
+    "Code": "CMX",
+    "Name": "Houghton County Memorial"
+  },
+  {
+    "Code": "CNY",
+    "Name": "Canyonlands"
+  },
+  {
+    "Code": "COD",
+    "Name": "Yellowstone Regional"
+  },
+  {
+    "Code": "COS",
+    "Name": "City of Colorado Springs Muni"
+  },
+  {
+    "Code": "COU",
+    "Name": "Columbia Regional"
+  },
+  {
+    "Code": "CPR",
+    "Name": "Natrona County Intl"
+  },
+  {
+    "Code": "CRP",
+    "Name": "Corpus Christi International"
+  },
+  {
+    "Code": "CRW",
+    "Name": "Yeager"
+  },
+  {
+    "Code": "CSG",
+    "Name": "Columbus Metropolitan"
+  },
+  {
+    "Code": "CWA",
+    "Name": "Central Wisconsin"
+  },
+  {
+    "Code": "CYS",
+    "Name": "Cheyenne"
+  },
+  {
+    "Code": "DAB",
+    "Name": "Daytona Beach International"
+  },
+  {
+    "Code": "DAY",
+    "Name": "James M Cox Dayton Intl"
+  },
+  {
+    "Code": "DBQ",
+    "Name": "Dubuque Municipal"
+  },
+  {
+    "Code": "DHN",
+    "Name": "Dothan"
+  },
+  {
+    "Code": "DIK",
+    "Name": "Dickinson Municipal"
+  },
+  {
+    "Code": "DLG",
+    "Name": "Dillingham"
+  },
+  {
+    "Code": "DLH",
+    "Name": "Duluth International"
+  },
+  {
+    "Code": "DRO",
+    "Name": "Durango-La Plata County"
+  },
+  {
+    "Code": "DRT",
+    "Name": "Del Rio International"
+  },
+  {
+    "Code": "DSM",
+    "Name": "Des Moines International"
+  },
+  {
+    "Code": "DVL",
+    "Name": "Devils Lake Municipal-Knoke"
+  },
+  {
+    "Code": "EAU",
+    "Name": "Chippewa Valley Regional"
+  },
+  {
+    "Code": "EGE",
+    "Name": "Eagle County Regional"
+  },
+  {
+    "Code": "EKO",
+    "Name": "Elko Regional"
+  },
+  {
+    "Code": "ELM",
+    "Name": "Elmira Corning Regional"
+  },
+  {
+    "Code": "ERI",
+    "Name": "Erie Intl"
+  },
+  {
+    "Code": "ESC",
+    "Name": "Delta County"
+  },
+  {
+    "Code": "EUG",
+    "Name": "Mahlon Sweet"
+  },
+  {
+    "Code": "EVV",
+    "Name": "Evansville Regional"
+  },
+  {
+    "Code": "EWN",
+    "Name": "Craven County Regional"
+  },
+  {
+    "Code": "EYW",
+    "Name": "Key West International"
+  },
+  {
+    "Code": "FAI",
+    "Name": "Fairbanks International"
+  },
+  {
+    "Code": "FAR",
+    "Name": "Hector International"
+  },
+  {
+    "Code": "FAT",
+    "Name": "Fresno Yosemite International"
+  },
+  {
+    "Code": "FAY",
+    "Name": "Fayetteville Municipal"
+  },
+  {
+    "Code": "FCA",
+    "Name": "Glacier Park Intl"
+  },
+  {
+    "Code": "FLG",
+    "Name": "Flagstaff Pulliam"
+  },
+  {
+    "Code": "FLO",
+    "Name": "Florence Regional"
+  },
+  {
+    "Code": "FNT",
+    "Name": "Bishop"
+  },
+  {
+    "Code": "FOE",
+    "Name": "Forbes"
+  },
+  {
+    "Code": "FSD",
+    "Name": "Joe Foss"
+  },
+  {
+    "Code": "FSM",
+    "Name": "Fort Smith Regional"
+  },
+  {
+    "Code": "FWA",
+    "Name": "Fort Wayne International"
+  },
+  {
+    "Code": "GCC",
+    "Name": "Gillette-Campbell County"
+  },
+  {
+    "Code": "GCK",
+    "Name": "Garden City Regional"
+  },
+  {
+    "Code": "GEG",
+    "Name": "Spokane Intl"
+  },
+  {
+    "Code": "GGG",
+    "Name": "Gregg County"
+  },
+  {
+    "Code": "GJT",
+    "Name": "Walker"
+  },
+  {
+    "Code": "GNV",
+    "Name": "Gainesville Regional"
+  },
+  {
+    "Code": "GPT",
+    "Name": "Gulfport-Biloxi Regional"
+  },
+  {
+    "Code": "GRB",
+    "Name": "Austin Straubel International"
+  },
+  {
+    "Code": "GRI",
+    "Name": "Central Nebraska Regional"
+  },
+  {
+    "Code": "GRK",
+    "Name": "Robert Gray AAF"
+  },
+  {
+    "Code": "GRR",
+    "Name": "Kent County International"
+  },
+  {
+    "Code": "GSO",
+    "Name": "Piedmont Triad International"
+  },
+  {
+    "Code": "GSP",
+    "Name": "Greenville-Spartanburg"
+  },
+  {
+    "Code": "GST",
+    "Name": "Gustavus"
+  },
+  {
+    "Code": "GTF",
+    "Name": "Great Falls Intl"
+  },
+  {
+    "Code": "GTR",
+    "Name": "Golden Triangle Regional"
+  },
+  {
+    "Code": "GUC",
+    "Name": "Gunnison County"
+  },
+  {
+    "Code": "GUM",
+    "Name": "Guam International"
+  },
+  {
+    "Code": "HDN",
+    "Name": "Yampa Valley"
+  },
+  {
+    "Code": "HIB",
+    "Name": "Chisholm-Hibbing"
+  },
+  {
+    "Code": "HLN",
+    "Name": "Helena Regional"
+  },
+  {
+    "Code": "HOB",
+    "Name": "Lea County Regional"
+  },
+  {
+    "Code": "HPN",
+    "Name": "Westchester Cty"
+  },
+  {
+    "Code": "HRL",
+    "Name": "Valley International"
+  },
+  {
+    "Code": "HSV",
+    "Name": "Huntsville International"
+  },
+  {
+    "Code": "HTS",
+    "Name": "Tri-State Walker-Long"
+  },
+  {
+    "Code": "HYA",
+    "Name": "Barnstable Mun Boardman Polando"
+  },
+  {
+    "Code": "HYS",
+    "Name": "Hays Municipal"
+  },
+  {
+    "Code": "ICT",
+    "Name": "Wichita Mid-Continent"
+  },
+  {
+    "Code": "IDA",
+    "Name": "Idaho Falls Regional"
+  },
+  {
+    "Code": "ILG",
+    "Name": "New Castle County"
+  },
+  {
+    "Code": "ILM",
+    "Name": "Wilmington International"
+  },
+  {
+    "Code": "IMT",
+    "Name": "Ford"
+  },
+  {
+    "Code": "INL",
+    "Name": "Falls International"
+  },
+  {
+    "Code": "IPL",
+    "Name": "Imperial County"
+  },
+  {
+    "Code": "ISN",
+    "Name": "Sloulin Field International"
+  },
+  {
+    "Code": "ISP",
+    "Name": "Long Island - MacArthur"
+  },
+  {
+    "Code": "ITH",
+    "Name": "Tompkins Cty"
+  },
+  {
+    "Code": "ITO",
+    "Name": "Hilo International"
+  },
+  {
+    "Code": "IYK",
+    "Name": "Inyokern"
+  },
+  {
+    "Code": "JAC",
+    "Name": "Jackson Hole"
+  },
+  {
+    "Code": "JAN",
+    "Name": "Jackson International"
+  },
+  {
+    "Code": "JLN",
+    "Name": "Joplin Regional"
+  },
+  {
+    "Code": "JMS",
+    "Name": "Jamestown Municipal"
+  },
+  {
+    "Code": "JNU",
+    "Name": "Juneau International"
+  },
+  {
+    "Code": "KOA",
+    "Name": "Kona International At Keahole"
+  },
+  {
+    "Code": "KTN",
+    "Name": "Ketchikan International"
+  },
+  {
+    "Code": "LAN",
+    "Name": "Capital City"
+  },
+  {
+    "Code": "LAR",
+    "Name": "Laramie Regional"
+  },
+  {
+    "Code": "LAW",
+    "Name": "Lawton-Ft Sill Regional"
+  },
+  {
+    "Code": "LBB",
+    "Name": "Lubbock International"
+  },
+  {
+    "Code": "LCH",
+    "Name": "Lake Charles Regional"
+  },
+  {
+    "Code": "LEX",
+    "Name": "Blue Grass"
+  },
+  {
+    "Code": "LFT",
+    "Name": "Lafayette Regional"
+  },
+  {
+    "Code": "LGB",
+    "Name": "Long Beach (Daugherty)"
+  },
+  {
+    "Code": "LIH",
+    "Name": "Lihue"
+  },
+  {
+    "Code": "LMT",
+    "Name": "Klamath Falls International"
+  },
+  {
+    "Code": "LNK",
+    "Name": "Lincoln Municipal"
+  },
+  {
+    "Code": "LRD",
+    "Name": "Laredo International"
+  },
+  {
+    "Code": "LSE",
+    "Name": "La Crosse Municipal"
+  },
+  {
+    "Code": "LWB",
+    "Name": "Greenbrier Valley"
+  },
+  {
+    "Code": "LWS",
+    "Name": "Lewiston-Nez Perce County"
+  },
+  {
+    "Code": "LYH",
+    "Name": "Lynchburg Municipal-Preston Glenn"
+  },
+  {
+    "Code": "MAF",
+    "Name": "Midland International"
+  },
+  {
+    "Code": "MBS",
+    "Name": "Mbs International"
+  },
+  {
+    "Code": "MCN",
+    "Name": "Middle Georgia Regional"
+  },
+  {
+    "Code": "MDT",
+    "Name": "Harrisburg Intl"
+  },
+  {
+    "Code": "MEI",
+    "Name": "Key"
+  },
+  {
+    "Code": "MFE",
+    "Name": "McAllen Miller International"
+  },
+  {
+    "Code": "MFR",
+    "Name": "Rogue Valley International"
+  },
+  {
+    "Code": "MGM",
+    "Name": "Montgomery Regional Apt"
+  },
+  {
+    "Code": "MHK",
+    "Name": "Manhattan Regional"
+  },
+  {
+    "Code": "MHT",
+    "Name": "Manchester"
+  },
+  {
+    "Code": "MKG",
+    "Name": "Muskegon County"
+  },
+  {
+    "Code": "MLB",
+    "Name": "Melbourne International"
+  },
+  {
+    "Code": "MLI",
+    "Name": "Quad City"
+  },
+  {
+    "Code": "MLU",
+    "Name": "Monroe Regional"
+  },
+  {
+    "Code": "MMH",
+    "Name": "Mammoth Yosemite"
+  },
+  {
+    "Code": "MOB",
+    "Name": "Mobile Regional"
+  },
+  {
+    "Code": "MOD",
+    "Name": "Modesto City-County-Harry Sham"
+  },
+  {
+    "Code": "MOT",
+    "Name": "Minot International"
+  },
+  {
+    "Code": "MQT",
+    "Name": "Marquette County Airport"
+  },
+  {
+    "Code": "MRY",
+    "Name": "Monterey Peninsula"
+  },
+  {
+    "Code": "MSN",
+    "Name": "Dane County Regional"
+  },
+  {
+    "Code": "MSO",
+    "Name": "Missoula International"
+  },
+  {
+    "Code": "MTJ",
+    "Name": "Montrose Regional"
+  },
+  {
+    "Code": "MVY",
+    "Name": "Marthas Vineyard"
+  },
+  {
+    "Code": "MWH",
+    "Name": "Grant County"
+  },
+  {
+    "Code": "MYR",
+    "Name": "Myrtle Beach International"
+  },
+  {
+    "Code": "OAJ",
+    "Name": "Albert J Ellis"
+  },
+  {
+    "Code": "OME",
+    "Name": "Nome"
+  },
+  {
+    "Code": "ORH",
+    "Name": "Worcester Regional"
+  },
+  {
+    "Code": "OTH",
+    "Name": "North Bend Muni"
+  },
+  {
+    "Code": "OTZ",
+    "Name": "Ralph Wien Memorial"
+  },
+  {
+    "Code": "OXR",
+    "Name": "Oxnard"
+  },
+  {
+    "Code": "PAH",
+    "Name": "Barkley Regional"
+  },
+  {
+    "Code": "PFN",
+    "Name": "Panama City-Bay County International"
+  },
+  {
+    "Code": "PHF",
+    "Name": "Newport News Williamsburg International"
+  },
+  {
+    "Code": "PIA",
+    "Name": "Greater Peoria Regional"
+  },
+  {
+    "Code": "PIB",
+    "Name": "Hattiesburg-Laurel Regional"
+  },
+  {
+    "Code": "PIE",
+    "Name": "St. Petersburg-Clearwater International"
+  },
+  {
+    "Code": "PIH",
+    "Name": "Pocatello Regional"
+  },
+  {
+    "Code": "PIR",
+    "Name": "Pierre Regional"
+  },
+  {
+    "Code": "PLN",
+    "Name": "Pellston Regional  of Emmet County"
+  },
+  {
+    "Code": "PNS",
+    "Name": "Pensacola Regional"
+  },
+  {
+    "Code": "PPG",
+    "Name": "Pago Pago International"
+  },
+  {
+    "Code": "PSC",
+    "Name": "Tri-Cities"
+  },
+  {
+    "Code": "PSE",
+    "Name": "Mercedita"
+  },
+  {
+    "Code": "PSG",
+    "Name": "James C. Johnson Petersburg"
+  },
+  {
+    "Code": "PSP",
+    "Name": "Palm Springs International"
+  },
+  {
+    "Code": "PUB",
+    "Name": "Pueblo Memorial"
+  },
+  {
+    "Code": "PWM",
+    "Name": "Portland International Jetport"
+  },
+  {
+    "Code": "RAP",
+    "Name": "Rapid City Regional"
+  },
+  {
+    "Code": "RDD",
+    "Name": "Redding Municipal"
+  },
+  {
+    "Code": "RDM",
+    "Name": "Roberts"
+  },
+  {
+    "Code": "RFD",
+    "Name": "Greater Rockford"
+  },
+  {
+    "Code": "RHI",
+    "Name": "Rhinelander-Oneida County"
+  },
+  {
+    "Code": "RKS",
+    "Name": "Rock Springs-Sweetwater County"
+  },
+  {
+    "Code": "ROA",
+    "Name": "Roanoke Regional  Woodrum"
+  },
+  {
+    "Code": "ROC",
+    "Name": "Greater Rochester Int'l"
+  },
+  {
+    "Code": "ROW",
+    "Name": "Roswell Industrial Air Center"
+  },
+  {
+    "Code": "RST",
+    "Name": "Rochester International"
+  },
+  {
+    "Code": "SAF",
+    "Name": "Santa Fe Municipal"
+  },
+  {
+    "Code": "SAV",
+    "Name": "Savannah International"
+  },
+  {
+    "Code": "SBA",
+    "Name": "Santa Barbara Municipal"
+  },
+  {
+    "Code": "SBN",
+    "Name": "South Bend Regional"
+  },
+  {
+    "Code": "SBP",
+    "Name": "San Luis Obispo Co-McChesney"
+  },
+  {
+    "Code": "SCC",
+    "Name": "Deadhorse"
+  },
+  {
+    "Code": "SCE",
+    "Name": "University Park"
+  },
+  {
+    "Code": "SGF",
+    "Name": "Springfield-Branson Regional"
+  },
+  {
+    "Code": "SGU",
+    "Name": "St George Muni"
+  },
+  {
+    "Code": "SHD",
+    "Name": "Shenandoah Valley Regional"
+  },
+  {
+    "Code": "SHV",
+    "Name": "Shreveport Regional"
+  },
+  {
+    "Code": "SIT",
+    "Name": "Sitka"
+  },
+  {
+    "Code": "SJT",
+    "Name": "San Angelo Regional  Mathis"
+  },
+  {
+    "Code": "SMX",
+    "Name": "Santa Maria Pub Capt G Allan Hancock"
+  },
+  {
+    "Code": "SPI",
+    "Name": "Capital"
+  },
+  {
+    "Code": "SPN",
+    "Name": "Tinian International Airport"
+  },
+  {
+    "Code": "SPS",
+    "Name": "Sheppard AFB Wichita Falls Municipal"
+  },
+  {
+    "Code": "SRQ",
+    "Name": "Sarasota Bradenton International"
+  },
+  {
+    "Code": "STC",
+    "Name": "St Cloud Regional"
+  },
+  {
+    "Code": "STT",
+    "Name": "Cyril E. King"
+  },
+  {
+    "Code": "STX",
+    "Name": "Henry E. Rohlsen"
+  },
+  {
+    "Code": "SUN",
+    "Name": "Friedman Memorial"
+  },
+  {
+    "Code": "SUX",
+    "Name": "Sioux Gateway"
+  },
+  {
+    "Code": "SWF",
+    "Name": "Stewart"
+  },
+  {
+    "Code": "SYR",
+    "Name": "Syracuse-Hancock Intl"
+  },
+  {
+    "Code": "TEX",
+    "Name": "Telluride Regional"
+  },
+  {
+    "Code": "TLH",
+    "Name": "Tallahassee Regional"
+  },
+  {
+    "Code": "TOL",
+    "Name": "Toledo Express"
+  },
+  {
+    "Code": "TRI",
+    "Name": "Tri-Cities Regional"
+  },
+  {
+    "Code": "TTN",
+    "Name": "Trenton-Mercer County"
+  },
+  {
+    "Code": "TUP",
+    "Name": "Tupelo Municipal"
+  },
+  {
+    "Code": "TVC",
+    "Name": "Cherry Capital"
+  },
+  {
+    "Code": "TWF",
+    "Name": "Joslin Field - Magic Valley"
+  },
+  {
+    "Code": "TXK",
+    "Name": "Texarkana Regional-Webb"
+  },
+  {
+    "Code": "TYR",
+    "Name": "Tyler Pounds"
+  },
+  {
+    "Code": "TYS",
+    "Name": "McGhee-Tyson"
+  },
+  {
+    "Code": "VEL",
+    "Name": "Vernal"
+  },
+  {
+    "Code": "VLD",
+    "Name": "Valdosta Regional"
+  },
+  {
+    "Code": "VPS",
+    "Name": "Eglin Air Force Base"
+  },
+  {
+    "Code": "WRG",
+    "Name": "Wrangell"
+  },
+  {
+    "Code": "WYS",
+    "Name": "Yellowstone"
+  },
+  {
+    "Code": "XNA",
+    "Name": "Northwest Arkansas Regional"
+  },
+  {
+    "Code": "YAK",
+    "Name": "Yakutat"
+  },
+  {
+    "Code": "YUM",
+    "Name": "Yuma MCAS-Yuma International"
+  }
+]
