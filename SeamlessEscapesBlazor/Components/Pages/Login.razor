@@ -38,9 +38,15 @@
 @code {
     private LoginModel loginModel = new LoginModel();
 
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+
     private void HandleLogin()
     {
         // Handle login logic here
+        
+        // Redirect to the home page after successful login
+        Navigation.NavigateTo("/");
     }
 
     private class LoginModel

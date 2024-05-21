@@ -1,6 +1,7 @@
 ﻿@page "/"
 
 @using SeamlessEscapesBlazor.Components.Data
+@inject NavigationManager NavigationManager
 
 <EditForm Model="@bookingRequest" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -27,7 +28,7 @@
                 <option value="" selected disabled>Select Source City</option>
                 @foreach (var airport in Airports)
                 {
-                <option value="@airport.Code">@airport.Name (@airport.Code)</option>
+                    <option value="@airport.Code">@airport.Name (@airport.Code)</option>
                 }
             </InputSelect>
         </div>
@@ -40,7 +41,7 @@
                 <option value="" selected disabled>Select Destination City</option>
                 @foreach (var airport in Airports)
                 {
-                <option value="@airport.Code">@airport.Name (@airport.Code)</option>
+                    <option value="@airport.Code">@airport.Name (@airport.Code)</option>
                 }
             </InputSelect>
         </div>
@@ -71,28 +72,29 @@
         </div>
     </div>
 
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" href="/Flights">Submit and Go to Flights</button>
+  
 </EditForm>
-
-@inject NavigationManager NavigationManager
-
+ 
 @code {
     private BookingRequest bookingRequest = new BookingRequest();
-    private string today = DateTime.Now.ToString("yyyy-MM-dd");
 
-    public class BookingRequest
+
+       public class BookingRequest
     {
         public DateTime DepartureDate { get; set; } = DateTime.Now;
         public DateTime ArrivalDate { get; set; } = DateTime.Now.AddDays(1);
         public string SourceCity { get; set; }
         public string DestinationCity { get; set; }
         public int NumberOfPeople { get; set; } = 1;
-        public string TransportMode { get; set; } = "Flight";
+        public string TransportMode { get; set; }
         public string Interests { get; set; }
     }
 
+    private string today = DateTime.Now.ToString("yyyy-MM-dd");
+
     private List<AirportInfo> Airports { get; set; }
+
 
     protected override void OnInitialized()
     {
@@ -103,13 +105,21 @@
     {
         if (ValidateInputs())
         {
-            string destinationUrl = $"/flights/{Uri.EscapeDataString(bookingRequest.SourceCity)}/{Uri.EscapeDataString(bookingRequest.DestinationCity)}";
+            string destinationUrl = "/Flights";
             NavigationManager.NavigateTo(destinationUrl);
         }
     }
 
     private bool ValidateInputs()
     {
-        return bookingRequest.ArrivalDate > bookingRequest.DepartureDate;
+        return (bookingRequest.ArrivalDate > bookingRequest.DepartureDate) &&
+               (string.Equals(bookingRequest.TransportMode, "Flight", StringComparison.OrdinalIgnoreCase));
     }
 }
+
+
+
+
+
+
+ 
