@@ -1,65 +1,79 @@
 ﻿@page "/"
 
-@using SeamlessEscapesBlazor.Components.Data 
+@using SeamlessEscapesBlazor.Components.Data
 
-<EditForm Model="@bookingRequest">
+<EditForm Model="@bookingRequest" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
     <div class="form-group">
         <label for="departure">Departure Date:</label>
-        <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" min="@today" />
+        <div style="max-width: 300px;">
+            <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" min="@today" class="form-control" />
+        </div>
     </div>
 
     <div class="form-group">
         <label for="arrival">Arrival Date:</label>
-        <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" />
+        <div style="max-width: 300px;">
+            <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" min="@today" class="form-control" />
+        </div>
     </div>
 
     <div class="form-group">
         <label for="source">Source City:</label>
-        <select id="source" @bind="bookingRequest.SourceCity">
-            <option value="">Select Source City</option>
-            @foreach (var airport in Airports)
-            {
+        <div style="max-width: 300px;">
+            <InputSelect id="source" @bind-Value="bookingRequest.SourceCity" class="form-control">
+                <option value="" selected disabled>Select Source City</option>
+                @foreach (var airport in Airports)
+                {
                 <option value="@airport.Code">@airport.Name (@airport.Code)</option>
-            }
-        </select>
+                }
+            </InputSelect>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="destination">Destination City:</label>
-        <select id="destination" @bind="bookingRequest.DestinationCity">
-            <option value="">Select Destination City</option>
-            @foreach (var airport in Airports)
-            {
+        <div style="max-width: 300px;">
+            <InputSelect id="destination" @bind-Value="bookingRequest.DestinationCity" class="form-control">
+                <option value="" selected disabled>Select Destination City</option>
+                @foreach (var airport in Airports)
+                {
                 <option value="@airport.Code">@airport.Name (@airport.Code)</option>
-            }
-        </select>
+                }
+            </InputSelect>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="people">Number of People:</label>
-        <InputNumber id="people" @bind-Value="bookingRequest.NumberOfPeople" min="1" />
+        <div style="max-width: 300px;">
+            <InputNumber id="people" @bind-Value="bookingRequest.NumberOfPeople" min="1" class="form-control" />
+        </div>
     </div>
 
     <div class="form-group">
         <label for="transport">Mode of Transport:</label>
-        <InputSelect id="transport" @bind-Value="bookingRequest.TransportMode">
-            <option value="Flight">Flight</option>
-            <option value="Road">Road</option>
-        </InputSelect>
+        <div style="max-width: 300px;">
+            <InputSelect id="transport" @bind-Value="bookingRequest.TransportMode" class="form-control">
+                <option value="" selected disabled>Select Mode of Transportation</option>
+                <option value="Flight">Flight</option>
+                <option value="Road">Road</option>
+            </InputSelect>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="interests">Interests:</label>
-        <InputText id="interests" @bind-Value="bookingRequest.Interests" />
+        <div style="max-width: 300px;">
+            <InputText id="interests" @bind-Value="bookingRequest.Interests" class="form-control" />
+        </div>
     </div>
 
-    <button type="button" class="btn btn-primary" @onclick="SubmitForm">Submit</button>
 
-
+    <button type="submit" class="btn btn-primary">Submit</button>
 </EditForm>
-
-
-
 
 @inject NavigationManager NavigationManager
 
@@ -73,8 +87,8 @@
         public DateTime ArrivalDate { get; set; } = DateTime.Now.AddDays(1);
         public string SourceCity { get; set; }
         public string DestinationCity { get; set; }
-        public int NumberOfPeople { get; set; }
-        public string TransportMode { get; set; }
+        public int NumberOfPeople { get; set; } = 1;
+        public string TransportMode { get; set; } = "Flight";
         public string Interests { get; set; }
     }
 
@@ -85,28 +99,17 @@
         Airports = AirportData.GetAirports();
     }
 
-    private void SubmitForm()
+    private void HandleValidSubmit()
     {
-        Console.WriteLine("SubmitForm method reached"); // Check if this gets printed in the browser's console
-
-        if (bookingRequest.ArrivalDate <= bookingRequest.DepartureDate)
-        {
-            Console.WriteLine("Validation failed: Arrival date must be after departure date.");
-            // You might want to add user-visible error messaging here
-        }
-        else
+        if (ValidateInputs())
         {
             string destinationUrl = $"/flights/{Uri.EscapeDataString(bookingRequest.SourceCity)}/{Uri.EscapeDataString(bookingRequest.DestinationCity)}";
-            Console.WriteLine($"Navigating to URL: {destinationUrl}"); // Check the output
             NavigationManager.NavigateTo(destinationUrl);
         }
     }
 
-
     private bool ValidateInputs()
     {
-        // Implement validation logic, for example:
         return bookingRequest.ArrivalDate > bookingRequest.DepartureDate;
     }
 }
- 
