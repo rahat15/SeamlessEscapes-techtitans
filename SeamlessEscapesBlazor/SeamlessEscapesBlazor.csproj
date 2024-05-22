@@ -16,7 +16,9 @@
   <ItemGroup>
     <Content Remove="Components\Pages\Component.razor" />
     <Content Remove="Components\Pages\Component1.razor" />
+    <Content Remove="Components\Pages\Counter.razor" />
     <Content Remove="Components\Pages\Error.razor" />
+    <Content Remove="Components\Pages\Weather.razor" />
     <Content Remove="wwwroot\airports.json" />
   </ItemGroup>
 
