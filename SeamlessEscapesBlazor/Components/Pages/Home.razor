@@ -3,87 +3,100 @@
 @using SeamlessEscapesBlazor.Components.Data
 @inject NavigationManager NavigationManager
 
-<EditForm Model="@bookingRequest" OnValidSubmit="HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+<style>
+    .form-card {
+        max-width: 400px; /* Adjust the width as needed */
+        margin: 20px auto; /* Center the card and add some vertical space */
+        padding: 20px;
+        border-radius: 8px; /* Optional: adds rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: adds a subtle shadow */
+        background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent background */
+    }
+</style>
 
-    <div class="form-group">
-        <label for="departure">Departure Date:</label>
-        <div style="max-width: 300px;">
-            <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" min="@today" class="form-control" />
-        </div>
+<div class="card form-card">
+    <div class="card-body">
+        <h2 class="card-title">Plan Your Trip</h2>
+        <EditForm Model="@bookingRequest" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="departure">Departure Date:</label>
+                <div style="max-width: 300px;">
+                    <InputDate id="departure" @bind-Value="bookingRequest.DepartureDate" min="@today" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival">Arrival Date:</label>
+                <div style="max-width: 300px;">
+                    <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" min="@today" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="source">Source City:</label>
+                <div style="max-width: 300px;">
+                    <InputSelect id="source" @bind-Value="bookingRequest.SourceCity" class="form-control">
+                        <option value="" selected disabled>Select Source City</option>
+                        @foreach (var airport in Airports)
+                        {
+                            <option value="@airport.Code">@airport.Name (@airport.Code)</option>
+                        }
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination City:</label>
+                <div style="max-width: 300px;">
+                    <InputSelect id="destination" @bind-Value="bookingRequest.DestinationCity" class="form-control">
+                        <option value="" selected disabled>Select Destination City</option>
+                        @foreach (var airport in Airports)
+                        {
+                            <option value="@airport.Code">@airport.Name (@airport.Code)</option>
+                        }
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="people">Number of People:</label>
+                <div style="max-width: 300px;">
+                    <InputNumber id="people" @bind-Value="bookingRequest.NumberOfPeople" min="1" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="transport">Mode of Transport:</label>
+                <div style="max-width: 300px;">
+                    <InputSelect id="transport" @bind-Value="bookingRequest.TransportMode" class="form-control">
+                        <option value="" selected disabled>Select Mode of Transportation</option>
+                        <option value="Flight">Flight</option>
+                        <option value="Road">Road</option>
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="interests">Interests:</label>
+                <div style="max-width: 300px;">
+                    <InputText id="interests" @bind-Value="bookingRequest.Interests" class="form-control" />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit and Go to Flights</button>
+            </div>
+        </EditForm>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="arrival">Arrival Date:</label>
-        <div style="max-width: 300px;">
-            <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" min="@today" class="form-control" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="source">Source City:</label>
-        <div style="max-width: 300px;">
-            <InputSelect id="source" @bind-Value="bookingRequest.SourceCity" class="form-control">
-                <option value="" selected disabled>Select Source City</option>
-                @foreach (var airport in Airports)
-                {
-                    <option value="@airport.Code">@airport.Name (@airport.Code)</option>
-                }
-            </InputSelect>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="destination">Destination City:</label>
-        <div style="max-width: 300px;">
-            <InputSelect id="destination" @bind-Value="bookingRequest.DestinationCity" class="form-control">
-                <option value="" selected disabled>Select Destination City</option>
-                @foreach (var airport in Airports)
-                {
-                    <option value="@airport.Code">@airport.Name (@airport.Code)</option>
-                }
-            </InputSelect>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="people">Number of People:</label>
-        <div style="max-width: 300px;">
-            <InputNumber id="people" @bind-Value="bookingRequest.NumberOfPeople" min="1" class="form-control" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="transport">Mode of Transport:</label>
-        <div style="max-width: 300px;">
-            <InputSelect id="transport" @bind-Value="bookingRequest.TransportMode" class="form-control">
-                <option value="" selected disabled>Select Mode of Transportation</option>
-                <option value="Flight">Flight</option>
-                <option value="Road">Road</option>
-            </InputSelect>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="interests">Interests:</label>
-        <div style="max-width: 300px;">
-            <InputText id="interests" @bind-Value="bookingRequest.Interests" class="form-control" />
-        </div>
-    </div>
-
-
-    <div class="card-footer text-center" style="max-width: 300px;">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/Flights'">Submit and Go to Flights</button>
-    </div>
-  
-</EditForm>
- 
 @code {
     private BookingRequest bookingRequest = new BookingRequest();
 
-
-       public class BookingRequest
+    public class BookingRequest
     {
         public DateTime DepartureDate { get; set; } = DateTime.Now;
         public DateTime ArrivalDate { get; set; } = DateTime.Now.AddDays(1);
@@ -97,7 +110,6 @@
     private string today = DateTime.Now.ToString("yyyy-MM-dd");
 
     private List<AirportInfo> Airports { get; set; }
-
 
     protected override void OnInitialized()
     {
@@ -119,10 +131,3 @@
                (string.Equals(bookingRequest.TransportMode, "Flight", StringComparison.OrdinalIgnoreCase));
     }
 }
-
-
-
-
-
-
- 

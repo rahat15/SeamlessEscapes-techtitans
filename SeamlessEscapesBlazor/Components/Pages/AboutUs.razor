@@ -11,8 +11,10 @@
     .developer-card {
         width: 18rem;
         margin: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.2s;
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+        border-radius: 8px; /* Optional: adds rounded corners */
     }
 
         .developer-card:hover {
@@ -22,6 +24,12 @@
     .card-body {
         text-align: center;
     }
+
+    .card-img-top {
+        width: 100%;
+        height: 250px;
+        aspect-ratio: 16/9; /* Keep a consistent aspect ratio */
+    }
 </style>
 
 <div class="container mt-5">
@@ -30,7 +38,7 @@
         @foreach (var developer in Developers)
         {
             <div class="card developer-card">
-               @*  <img src="@developer.ImageUrl" class="card-img-top" alt="@developer.Name" /> *@
+                <img src="@developer.ImageUrl" class="card-img-top" alt="@developer.Name" />
                 <div class="card-body">
                     <h5 class="card-title">@developer.Name</h5>
                     <p class="card-text">@developer.Role</p>
@@ -48,36 +56,36 @@
         {
             Name = "Rahat Bhatia",
             Role = "Junior CS",
-            Description = "Alice is a skilled frontend developer with a passion for creating interactive user interfaces.",
-            //ImageUrl = "https://via.placeholder.com/150"
+            Description = "Rahat is a skilled frontend developer with a passion for creating interactive user interfaces.",
+            ImageUrl = "/images/rahat.jpg" // Ensure this path is correct
         },
         new Developer
         {
             Name = "Shahzeb Khan",
             Role = "Senior CS",
-            Description = "Bob specializes in server-side logic and database management, ensuring robust backend solutions.",
-          //  ImageUrl = "https://via.placeholder.com/150"
+            Description = "Shahzeb specializes in server-side logic and database management, ensuring robust backend solutions.",
+            ImageUrl = "/images/shahzeb.jpg" // Ensure this path is correct
         },
         new Developer
         {
             Name = "Andrea Diaz",
             Role = "Senior CS",
-            Description = "Carol is proficient in both frontend and backend technologies, delivering seamless full stack solutions.",
-           // ImageUrl = "https://via.placeholder.com/150"
+            Description = "Andrea is proficient in both frontend and backend technologies, delivering seamless full stack solutions.",
+            ImageUrl = "/images/andrea.jpg" // Ensure this path is correct
         },
         new Developer
         {
             Name = "Nathan Luiten",
             Role = "Senior CS",
-            Description = "David excels in deployment automation and infrastructure management, ensuring smooth operations.",
-           // ImageUrl = "https://via.placeholder.com/150"
+            Description = "Nathan excels in deployment automation and infrastructure management, ensuring smooth operations.",
+            ImageUrl = "/images/nathan.jpg" // Ensure this path is correct
         },
         new Developer
         {
             Name = "Parbhat Rai",
             Role = "Senior CS",
-            Description = "Eve designs intuitive and engaging user experiences, focusing on usability and aesthetics.",
-           // ImageUrl = "https://via.placeholder.com/150"
+            Description = "Parbhat designs intuitive and engaging user experiences, focusing on usability and aesthetics.",
+            ImageUrl = "/images/parbhat.jpg" // Ensure this path is correct
         }
     };
 
@@ -86,6 +94,6 @@
         public string Name { get; set; }
         public string Role { get; set; }
         public string Description { get; set; }
-       // public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

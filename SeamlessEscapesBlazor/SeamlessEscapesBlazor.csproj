@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <Compile Remove="Components\Data\NewFolder\**" />
+    <Compile Remove="wwwroot\NewFolder\**" />
     <Content Remove="Components\Data\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
     <EmbeddedResource Remove="Components\Data\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
     <None Remove="Components\Data\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +33,10 @@
   <ItemGroup>
     <PackageReference Include="Azure.Core" Version="1.39.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\NewFolder1\" />
   </ItemGroup>
 
 </Project>
