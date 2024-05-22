@@ -1,21 +1,67 @@
 ﻿@inherits LayoutComponentBase
 
+<style>
+    .page {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        background-image: url('background.jpg'); /* Replace with your image URL */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .top-navbar {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        color: white;
+        padding: 1rem;
+    }
+
+    .navbar-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sidebar {
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        color: white;
+        padding: 1rem;
+        height: 100vh;
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 2rem;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        overflow-y: auto;
+    }
+
+    .nav-link {
+        color: white;
+        margin-right: 1rem;
+    }
+
+        .nav-link:hover {
+            color: #ccc;
+        }
+</style>
+
 <div class="page">
-   
     <nav class="sidebar">
         <NavMenu />
     </nav>
 
     <main>
         <header class="top-row top-navbar">
-        <div class="navbar-content">
-        <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
-        <NavLink href="/AboutUs">About Us</NavLink>
-        <NavLink href="Login" class="login-link">Login</NavLink>
-        @* <NavLink href="Register" class="register-link">Register</NavLink> *@
-         </div>
-        </header> 
-
+            <div class="navbar-content">
+                <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
+                @* <NavLink href="/aboutus">About Us</NavLink> *@
+                <NavLink href="Login" class="login-link">Login</NavLink>
+                @* <NavLink href="Register" class="register-link">Register</NavLink> *@
+            </div>
+        </header>
 
         <article class="content px-4">
             @Body
@@ -23,15 +69,8 @@
     </main>
 </div>
 
-
-
-
 <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
-
-
-
-

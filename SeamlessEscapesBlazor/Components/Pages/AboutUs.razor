@@ -1,0 +1,91 @@
+﻿@page "/about-us"
+
+<style>
+    .about-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .developer-card {
+        width: 18rem;
+        margin: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+
+        .developer-card:hover {
+            transform: scale(1.05);
+        }
+
+    .card-body {
+        text-align: center;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">About Us</h2>
+    <div class="about-container">
+        @foreach (var developer in Developers)
+        {
+            <div class="card developer-card">
+               @*  <img src="@developer.ImageUrl" class="card-img-top" alt="@developer.Name" /> *@
+                <div class="card-body">
+                    <h5 class="card-title">@developer.Name</h5>
+                    <p class="card-text">@developer.Role</p>
+                    <p class="card-text">@developer.Description</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<Developer> Developers = new List<Developer>
+    {
+        new Developer
+        {
+            Name = "Rahat Bhatia",
+            Role = "Junior CS",
+            Description = "Alice is a skilled frontend developer with a passion for creating interactive user interfaces.",
+            //ImageUrl = "https://via.placeholder.com/150"
+        },
+        new Developer
+        {
+            Name = "Shahzeb Khan",
+            Role = "Senior CS",
+            Description = "Bob specializes in server-side logic and database management, ensuring robust backend solutions.",
+          //  ImageUrl = "https://via.placeholder.com/150"
+        },
+        new Developer
+        {
+            Name = "Andrea Diaz",
+            Role = "Senior CS",
+            Description = "Carol is proficient in both frontend and backend technologies, delivering seamless full stack solutions.",
+           // ImageUrl = "https://via.placeholder.com/150"
+        },
+        new Developer
+        {
+            Name = "Nathan Luiten",
+            Role = "Senior CS",
+            Description = "David excels in deployment automation and infrastructure management, ensuring smooth operations.",
+           // ImageUrl = "https://via.placeholder.com/150"
+        },
+        new Developer
+        {
+            Name = "Parbhat Rai",
+            Role = "Senior CS",
+            Description = "Eve designs intuitive and engaging user experiences, focusing on usability and aesthetics.",
+           // ImageUrl = "https://via.placeholder.com/150"
+        }
+    };
+
+    public class Developer
+    {
+        public string Name { get; set; }
+        public string Role { get; set; }
+        public string Description { get; set; }
+       // public string ImageUrl { get; set; }
+    }
+}
