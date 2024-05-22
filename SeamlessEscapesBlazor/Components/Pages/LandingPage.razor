@@ -1,19 +1,66 @@
 ﻿@page "/"
 
+<style>
+    .custom-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .custom-card {
+        width: 100%;
+        max-width: 800px;
+        margin: 15px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .custom-card-body {
+        text-align: center;
+    }
+
+        .custom-card-body h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .custom-card-body p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+    .custom-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+    }
+</style>
+
 <div class="custom-container">
     <!-- What our website is about -->
     <div class="card custom-card">
         <div class="card-body custom-card-body">
-            <h2 class="card-title">What Our Website Is About</h2>
-            <p class="card-text">This is a brief description of what our website does, how it helps users plan their trips, and what services we offer.</p>
+            <h2 class="card-title">Discover Seamless Escapes</h2>
+            <p class="card-text">Experience the ultimate travel planning tool that simplifies your journey from start to finish. Seamless Escapes helps you find the best destinations, accommodations, and activities tailored to your preferences.</p>
         </div>
     </div>
 
     <!-- Plan a trip -->
     <div class="card custom-card">
         <div class="card-body custom-card-body">
-            <h2 class="card-title">Let's Plan a Trip</h2>
-            <p class="card-text">Ready to explore the world? Start planning your next adventure with us today!</p>
+            <h2 class="card-title">Plan Your Next Adventure</h2>
+            <p class="card-text">Ready to explore the world? Use our intuitive planner to create a personalized travel itinerary that matches your interests and budget. Let's make your dream trip a reality!</p>
             <button type="button" class="btn btn-primary custom-btn" onclick="window.location.href='/home'">Plan Your Trip</button>
         </div>
     </div>
@@ -21,30 +68,9 @@
     <!-- About the team -->
     <div class="card custom-card">
         <div class="card-body custom-card-body">
-            <h2 class="card-title">Meet Our Team</h2>
-            <p class="card-text">Get to know the incredible people behind our site, dedicated to making your travel experience the best it can be.</p>
+            <h2 class="card-title">Meet the Team</h2>
+            <p class="card-text">Our dedicated team of travel enthusiasts and tech experts work tirelessly to provide you with the best tools and tips for your travels. Learn more about the people who make Seamless Escapes possible.</p>
             <button type="button" class="btn btn-primary custom-btn" onclick="window.location.href='/about-us'">About Us</button>
         </div>
     </div>
 </div>
-
-
-<style>
-    .custom-container {
-        max-width: 800px; /* Adjust this value to fit your design */
-        margin-left: 20px; /* Aligns container to the left */
-        margin-top: 20px; /* Adds some space at the top */
-    }
-
-    .custom-card {
-        margin-bottom: 15px; /* Adds space between cards */
-    }
-
-    .custom-card-body {
-        padding: 15px; /* Padding inside the card for content */
-    }
-
-    .custom-btn {
-        width: 100%; /* Makes button full width of the card body */
-    }
-</style>
