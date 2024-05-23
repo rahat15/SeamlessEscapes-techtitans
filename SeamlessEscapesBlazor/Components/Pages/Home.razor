@@ -120,8 +120,8 @@
     {
         if (ValidateInputs())
         {
-            string destinationUrl = "/Flights";
-            NavigationManager.NavigateTo(destinationUrl);
+            var url = $"/flights/{bookingRequest.SourceCity}/{bookingRequest.DestinationCity}/{bookingRequest.DepartureDate:yyyy-MM-dd}/{bookingRequest.ArrivalDate:yyyy-MM-dd}";
+            NavigationManager.NavigateTo(url);
         }
     }
 

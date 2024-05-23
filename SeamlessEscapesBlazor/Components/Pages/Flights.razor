@@ -1,78 +1,56 @@
-﻿@page "/Flights"
+﻿@page "/flights/{Source}/{Destination}/{DepartureDate}/{ReturnDate}"
 
 @inject FlightService FlightService
 
 @using SeamlessEscapesBlazor.Models
 
-<style>
-    .flights-container {
-        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-        padding: 20px;
-        border-radius: 8px; /* Optional: adds rounded corners */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: adds a subtle shadow */
-        max-width: 1200px;
-        margin: auto;
-        margin-top: 20px;
-    }
+<h3>Round Trip Flights from @Source to @Destination</h3>
 
-    .flights-table {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-        .flights-table th, .flights-table td {
-            padding: 10px;
-            text-align: left;
-        }
-</style>
-
-<div class="flights-container">
-    <h3>Flights Overview</h3>
-
-    @if (flights == null)
-    {
-        <p><em>Loading flights...</em></p>
-    }
-    else if (flights.Count == 0)
-    {
-        <p>No flights available for the selected route.</p>
-    }
-    else
-    {
-        <table class="table flights-table">
-            <thead>
+@if (flights == null)
+{
+    <p><em>Loading flights...</em></p>
+}
+else if (flights.Count == 0)
+{
+    <p>No flights available for the selected route.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Flight Number</th>
+                <th>Airline</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var flight in flights)
+            {
                 <tr>
-                    <th>Flight Number</th>
-                    <th>Airline</th>
-                    <th>Departure Time</th>
-                    <th>Arrival Time</th>
-                    <th>Description</th>
+                    <td>@flight.FlightNumber</td>
+                    <td>@flight.Airline</td>
+                    <td>@flight.DepartureTime.ToString("g")</td>
+                    <td>@flight.ArrivalTime.ToString("g")</td>
+                    <td>@flight.Description</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var flight in flights)
-                {
-                    <tr>
-                        <td>@flight.FlightNumber</td>
-                        <td>@flight.Airline</td>
-                        <td>@flight.DepartureTime.ToString("g")</td>
-                        <td>@flight.ArrivalTime.ToString("g")</td>
-                        <td>@flight.Description</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-</div>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
     [Parameter] public string Source { get; set; }
     [Parameter] public string Destination { get; set; }
+    [Parameter] public DateTime DepartureDate { get; set; }
+    [Parameter] public DateTime ReturnDate { get; set; }
 
     private List<Flight> flights;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
-        flights = await FlightService.GetFlightsAsync(Source, Destination);
+        flights = await FlightService.GetRoundTripFlightsAsync(Source, Destination, DepartureDate, ReturnDate);
     }
 }
