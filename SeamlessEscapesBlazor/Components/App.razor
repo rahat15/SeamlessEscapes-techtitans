@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject IJSRuntime JSRuntime
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,9 +17,17 @@
 <body>
     <Routes />
     <script src="_framework/blazor.web.js"></script>
+
+    @code {
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                // Load firebaseInit.js after the Blazor components are rendered
+                await JSRuntime.InvokeVoidAsync("loadScript", "firebaseInit.js");
+            }
+        }
+    }
 </body>
 
 </html>
-
-
-
