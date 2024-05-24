@@ -17,6 +17,18 @@
 <div class="card form-card">
     <div class="card-body">
         <h2 class="card-title">Plan Your Trip</h2>
+
+        <div class="form-group text-center mb-3">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="oneWay" name="tripType" @onchange="() => SetTripType(true)" checked="@isOneWay">
+                <label class="form-check-label" for="oneWay">One Way</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="roundTrip" name="tripType" @onchange="() => SetTripType(false)" checked="@(!isOneWay)">
+                <label class="form-check-label" for="roundTrip">Round Trip</label>
+            </div>
+        </div>
+
         <EditForm Model="@bookingRequest" OnValidSubmit="HandleValidSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
@@ -28,12 +40,15 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="arrival">Arrival Date:</label>
-                <div style="max-width: 300px;">
-                    <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" min="@today" class="form-control" />
+            @if (!isOneWay)
+            {
+                <div class="form-group">
+                    <label for="arrival">Arrival Date:</label>
+                    <div style="max-width: 300px;">
+                        <InputDate id="arrival" @bind-Value="bookingRequest.ArrivalDate" min="@today" class="form-control" />
+                    </div>
                 </div>
-            </div>
+            }
 
             <div class="form-group">
                 <label for="source">Source City:</label>
@@ -62,20 +77,50 @@
             </div>
 
             <div class="form-group">
-                <label for="people">Number of People:</label>
+                <label for="adults">Number of Adults:</label>
                 <div style="max-width: 300px;">
-                    <InputNumber id="people" @bind-Value="bookingRequest.NumberOfPeople" min="1" class="form-control" />
+                    <InputNumber id="adults" @bind-Value="bookingRequest.NumberOfAdults" min="1" class="form-control" />
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="transport">Mode of Transport:</label>
+                <label for="children">Number of Children:</label>
                 <div style="max-width: 300px;">
-                    <InputSelect id="transport" @bind-Value="bookingRequest.TransportMode" class="form-control">
-                        <option value="" selected disabled>Select Mode of Transportation</option>
-                        <option value="Flight">Flight</option>
-                        <option value="Road">Road</option>
+                    <InputNumber id="children" @bind-Value="bookingRequest.NumberOfChildren" min="0" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="infants">Number of Infants:</label>
+                <div style="max-width: 300px;">
+                    <InputNumber id="infants" @bind-Value="bookingRequest.NumberOfInfants" min="0" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cabin_class">Cabin Class:</label>
+                <div style="max-width: 300px;">
+                    <InputSelect id="cabin_class" @bind-Value="bookingRequest.CabinClass" class="form-control">
+                        <option value="" selected disabled>Select Cabin Class</option>
+                        <option value="Economy">Economy</option>
+                        <option value="Business">Business</option>
+                        <option value="First">First</option>
+                        <option value="Premium_Economy">Premium Economy</option>
                     </InputSelect>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="currency">Currency:</label>
+                <div style="max-width: 300px;">
+                    <InputText id="currency" @bind-Value="bookingRequest.Currency" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="region">Region:</label>
+                <div style="max-width: 300px;">
+                    <InputText id="region" @bind-Value="bookingRequest.Region" class="form-control" />
                 </div>
             </div>
 
@@ -95,6 +140,7 @@
 
 @code {
     private BookingRequest bookingRequest = new BookingRequest();
+    private bool isOneWay = true;
 
     public class BookingRequest
     {
@@ -102,7 +148,12 @@
         public DateTime ArrivalDate { get; set; } = DateTime.Now.AddDays(1);
         public string SourceCity { get; set; }
         public string DestinationCity { get; set; }
-        public int NumberOfPeople { get; set; } = 1;
+        public int NumberOfAdults { get; set; } = 1;
+        public int NumberOfChildren { get; set; } = 0;
+        public int NumberOfInfants { get; set; } = 0;
+        public string CabinClass { get; set; }
+        public string Currency { get; set; }
+        public string Region { get; set; }
         public string TransportMode { get; set; }
         public string Interests { get; set; }
     }
@@ -120,14 +171,30 @@
     {
         if (ValidateInputs())
         {
-            var url = $"/flights/{bookingRequest.SourceCity}/{bookingRequest.DestinationCity}/{bookingRequest.DepartureDate:yyyy-MM-dd}/{bookingRequest.ArrivalDate:yyyy-MM-dd}";
+            var url = $"/flights/{bookingRequest.SourceCity}/{bookingRequest.DestinationCity}/{bookingRequest.DepartureDate:yyyy-MM-dd}";
+            if (!isOneWay)
+            {
+                url += $"/{bookingRequest.ArrivalDate:yyyy-MM-dd}";
+            }
             NavigationManager.NavigateTo(url);
         }
     }
 
     private bool ValidateInputs()
     {
-        return (bookingRequest.ArrivalDate > bookingRequest.DepartureDate) &&
-               (string.Equals(bookingRequest.TransportMode, "Flight", StringComparison.OrdinalIgnoreCase));
+        return (isOneWay || bookingRequest.ArrivalDate > bookingRequest.DepartureDate) &&
+               !string.IsNullOrEmpty(bookingRequest.CabinClass) &&
+               !string.IsNullOrEmpty(bookingRequest.Currency) &&
+               !string.IsNullOrEmpty(bookingRequest.Region);
+    }
+
+    private void SetTripType(bool oneWay)
+    {
+        isOneWay = oneWay;
+        if (isOneWay)
+        {
+            bookingRequest.ArrivalDate = bookingRequest.DepartureDate.AddDays(1);
+        }
+        StateHasChanged(); // Ensure the UI updates
     }
 }
