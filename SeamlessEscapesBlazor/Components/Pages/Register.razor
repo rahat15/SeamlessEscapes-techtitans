@@ -1,4 +1,6 @@
 ﻿@page "/Register"
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
 
 <div class="register-page container mt-5">
     <div class="row justify-content-center">
@@ -48,9 +50,19 @@
 @code {
     private RegistrationModel registrationModel = new RegistrationModel();
 
-    private void HandleRegistration()
+    private async Task HandleRegistration()
     {
-        // Handle registration logic here
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("addUserToFirestore", registrationModel);
+            // Optionally, navigate to another page after successful registration
+            Navigation.NavigateTo("/login");
+        }
+        catch (Exception ex)
+        {
+            // Handle error
+            Console.WriteLine($"Error registering user: {ex.Message}");
+        }
     }
 
     private class RegistrationModel
