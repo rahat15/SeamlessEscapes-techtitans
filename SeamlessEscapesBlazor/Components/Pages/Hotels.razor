@@ -1,0 +1,49 @@
+﻿@page "/hotels"
+
+<h3>Find Hotels</h3>
+
+<p>Use the form below to search for hotels at your destination:</p>
+
+<EditForm Model="@hotelSearchModel" OnValidSubmit="HandleHotelSearch">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="destination">Destination:</label>
+        <InputText id="destination" @bind-Value="hotelSearchModel.Destination" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="checkIn">Check-In Date:</label>
+        <InputDate id="checkIn" @bind-Value="hotelSearchModel.CheckInDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="checkOut">Check-Out Date:</label>
+        <InputDate id="checkOut" @bind-Value="hotelSearchModel.CheckOutDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="guests">Number of Guests:</label>
+        <InputNumber id="guests" @bind-Value="hotelSearchModel.NumberOfGuests" min="1" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search Hotels</button>
+</EditForm>
+
+@code {
+    private HotelSearchModel hotelSearchModel = new HotelSearchModel();
+
+    private void HandleHotelSearch()
+    {
+        // Implement search logic here
+    }
+
+    private class HotelSearchModel
+    {
+        public string Destination { get; set; }
+        public DateTime CheckInDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
+        public int NumberOfGuests { get; set; } = 1;
+    }
+}
