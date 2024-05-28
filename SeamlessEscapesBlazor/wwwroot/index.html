@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SeamlessEscapes</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/SeamlessEscapes.styles.css" />
+    <script src="_framework/blazor.server.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAwA69lCh74JXtd0OTtrS04EGMjxKs_I7o",
+            authDomain: "seamless-escapes-ad561.firebaseapp.com",
+            projectId: "seamless-escapes-ad561",
+            storageBucket: "seamless-escapes-ad561.appspot.com",
+            messagingSenderId: "31572445099",
+            appId: "1:31572445099:web:45c30ffd463edf5bae74ee",
+            measurementId: "G-Q4WX4VXB40"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+
+    <!-- Firebase functions -->
+    <script src="firebase-functions.js"></script>
+</head>
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+    <div id="blazor-error-ui">
+        An unhandled error has occurred. <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+</body>
+</html>
