@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SeamlessEscapesBlazor.Models;
 
 namespace SeamlessEscapesBlazor.Data
 {
@@ -8,9 +9,15 @@ namespace SeamlessEscapesBlazor.Data
         {
         }
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Flight> Flights { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Interest> Interests { get; set; }
+        public DbSet<PlanTrip> PlanTrips { get; set; }
+        public DbSet<Road> Roads { get; set; }
+        public DbSet<Transport> Transports { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

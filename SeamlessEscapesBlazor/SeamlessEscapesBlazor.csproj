@@ -1,48 +1,48 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Components\Data\NewFolder\**" />
-    <Compile Remove="wwwroot\NewFolder\**" />
-    <Content Remove="Components\Data\NewFolder\**" />
-    <Content Remove="wwwroot\NewFolder\**" />
-    <EmbeddedResource Remove="Components\Data\NewFolder\**" />
-    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
-    <None Remove="Components\Data\NewFolder\**" />
-    <None Remove="wwwroot\NewFolder\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Components\Data\NewFolder\**" />
+		<Compile Remove="wwwroot\NewFolder\**" />
+		<Content Remove="Components\Data\NewFolder\**" />
+		<Content Remove="wwwroot\NewFolder\**" />
+		<EmbeddedResource Remove="Components\Data\NewFolder\**" />
+		<EmbeddedResource Remove="wwwroot\NewFolder\**" />
+		<None Remove="Components\Data\NewFolder\**" />
+		<None Remove="wwwroot\NewFolder\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="Components\Pages\Component.razor" />
-    <Content Remove="Components\Pages\Component1.razor" />
-    <Content Remove="Components\Pages\Counter.razor" />
-    <Content Remove="Components\Pages\Error.razor" />
-    <Content Remove="Components\Pages\Weather.razor" />
-    <Content Remove="wwwroot\airports.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Remove="Components\Pages\Component.razor" />
+		<Content Remove="Components\Pages\Component1.razor" />
+		<Content Remove="Components\Pages\Counter.razor" />
+		<Content Remove="Components\Pages\Error.razor" />
+		<Content Remove="Components\Pages\Weather.razor" />
+		<Content Remove="wwwroot\airports.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Program.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Program.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Azure.Core" Version="1.39.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
-    <PackageReference Include="System.Text.Json" Version="8.0.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Azure.Core" Version="1.39.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="System.Text.Json" Version="8.0.3" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\NewFolder1\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\NewFolder1\" />
+	</ItemGroup>
 
 </Project>
