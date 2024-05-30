@@ -47,11 +47,12 @@ namespace SeamlessEscapesBlazor.Data
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Email).IsRequired(); // Ensure Email is required
+                entity.Property(e => e.Email).IsRequired();
                 entity.Property(e => e.Username).IsRequired();
                 entity.Property(e => e.Password).IsRequired();
             });
         }
     }
 }
+
 
