@@ -18,7 +18,7 @@ namespace SeamlessEscapesBlazor.Data
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21)));
+            /*optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21)));*/
 
             return new ApplicationDbContext(optionsBuilder.Options);
         }
