@@ -1,0 +1,72 @@
+﻿@* @page "/hotels/{City}/{CheckInDate}/{CheckOutDate}"
+
+@inject HotelService HotelService
+
+@using SeamlessEscapesBlazor.Models
+
+<h3>Hotels in @City</h3>
+
+@if (hotels == null)
+{
+    <p><em>Loading hotels...</em></p>
+}
+else if (hotels.Count == 0)
+{
+    <p>No hotels available for the selected dates.</p>
+}
+else
+{
+    <div class="hotel-list">
+        @foreach (var hotel in hotels)
+        {
+            <div class="hotel-card">
+                <div class="hotel-details">
+                    <h4>@hotel.HotelName</h4>
+                    <p>@hotel.Address</p>
+                    <p>Price per night: @hotel.PricePerNight.ToString("C")</p>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public string City { get; set; }
+    [Parameter] public DateTime CheckInDate { get; set; }
+    [Parameter] public DateTime CheckOutDate { get; set; }
+
+    private List<Hotel> hotels;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        hotels = await HotelService.GetHotelsAsync(City, CheckInDate, CheckOutDate);
+    }
+}
+
+<style>
+    .hotel-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .hotel-card {
+        width: 18rem;
+        margin: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        border-radius: 8px; /* Optional: adds rounded corners */
+        overflow: hidden;
+    }
+
+        .hotel-card:hover {
+            transform: scale(1.05);
+        }
+
+    .hotel-details {
+        padding: 15px;
+    }
+</style>
+ *@
