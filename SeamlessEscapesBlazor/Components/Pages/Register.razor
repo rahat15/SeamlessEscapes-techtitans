@@ -1,6 +1,8 @@
 ﻿@page "/Register"
 @inject IJSRuntime JSRuntime
 @inject NavigationManager Navigation
+@inject SeamlessEscapesBlazor.Services.UserService UserService
+@using SeamlessEscapesBlazor.Models
 
 <div class="register-page container mt-5">
     <div class="row justify-content-center">
@@ -10,9 +12,14 @@
                     <h3>Register</h3>
                 </div>
                 <div class="card-body">
-                    <EditForm Model="@registrationModel" OnValidSubmit="HandleRegistration">
+                    <EditForm Model="@registrationModel" OnValidSubmit="HandleRegistration" FormName="registerForm">
                         <DataAnnotationsValidator />
                         <ValidationSummary class="text-danger" />
+
+                        @if (!string.IsNullOrEmpty(errorMessage))
+                        {
+                            <div class="alert alert-danger">@errorMessage</div>
+                        }
 
                         <div class="form-group mb-3">
                             <label for="username" class="form-label">Username</label>
@@ -49,18 +56,58 @@
 
 @code {
     private RegistrationModel registrationModel = new RegistrationModel();
+    private string errorMessage;
 
     private async Task HandleRegistration()
     {
         try
         {
-            await JSRuntime.InvokeVoidAsync("addUserToFirestore", registrationModel);
-            // Optionally, navigate to another page after successful registration
-            Navigation.NavigateTo("/login");
+            errorMessage = string.Empty; // Clear previous error message
+
+            if (registrationModel.Password != registrationModel.ConfirmPassword)
+            {
+                errorMessage = "Passwords do not match.";
+                return;
+            }
+
+            // Check if username or email is already taken
+            if (await UserService.IsUsernameTaken(registrationModel.Username))
+            {
+                errorMessage = "Username is already taken.";
+                return;
+            }
+
+            if (await UserService.IsEmailTaken(registrationModel.Email))
+            {
+                errorMessage = "Email is already taken.";
+                return;
+            }
+
+            var newUser = new User
+            {
+                Username = "blah4", 
+                Email = "blah2@email.com",
+                Password = "password3", // In a real app, make sure to hash the password
+                UserID = 4
+                    
+            };
+            Console.WriteLine("Your info is:" + registrationModel.Username + registrationModel.Email + registrationModel.Password);
+
+            await UserService.RegisterUserAsync(newUser);
+
+            // Navigate to the login page after successful registration
+            Navigation.NavigateTo("/login", forceLoad: true);
+        }
+        catch (NavigationException navEx)
+        {
+            errorMessage = $"Navigation error: {navEx.Message}";
+            Console.WriteLine($"Navigation error: {navEx.Message}");
         }
         catch (Exception ex)
         {
             // Handle error
+            errorMessage = $"Error registering user: {ex.Message}";
+            Console.WriteLine();
             Console.WriteLine($"Error registering user: {ex.Message}");
         }
     }

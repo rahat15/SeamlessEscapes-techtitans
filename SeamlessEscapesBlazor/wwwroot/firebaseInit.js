@@ -2,14 +2,13 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-
+    
 };
 
 // Initialize Firebase
@@ -18,6 +17,8 @@ const db = getFirestore(app);
 db.collection("users");
 const userCol = collection(db , "users")
 const snapshot = await getDocs(userCol);
+
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 try {
     const docRef = await addDoc(collection(db, "users"), {
@@ -42,6 +43,13 @@ try {
 } catch (e) {
     console.error("Error adding document: ", e);
 }
+
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+});
 
 /*
 window.addUserToFirestore = async function (registrationModel) {

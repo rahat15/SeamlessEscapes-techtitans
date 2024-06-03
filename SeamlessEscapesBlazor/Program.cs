@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SeamlessEscapesBlazor.Components;
 using SeamlessEscapesBlazor.Data;
+using SeamlessEscapesBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 // Register FlightService
 builder.Services.AddScoped<FlightService>();
+
+// Register UserService
+builder.Services.AddScoped<UserService>();
 
 // Configure Entity Framework with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -35,3 +39,4 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
+
