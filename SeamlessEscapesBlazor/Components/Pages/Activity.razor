@@ -1,58 +1,41 @@
-﻿@page "/Activity/{interests}"
-@using SeamlessEscapesBlazor.Components.Data
-@page "/Activity"
-@using System.Linq;
+﻿@page "/Activity"
 
-<h3>Suggested Fun Activities based of your interests in this place</h3>
+<h3>Fun Activities to Do in the City</h3>
 
-<div class="activity-selection">
-    @foreach (var activity in FilteredActivities)
-    {
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="@activity.Name" @bind="activity.IsSelected">
-            <label class="form-check-label" for="@activity.Name">
-                @activity.Name
-            </label>
-        </div>
-    }
-</div>
+<p>Here are some exciting activities you can enjoy in the city:</p>
 
-<div class="text-center mt-3">
-    <button class="btn btn-primary" @onclick="SubmitActivities">Submit Activities</button>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Activity</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var activity in activities)
+        {
+            <tr>
+                <td>@activity.Name</td>
+                <td>@activity.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 @code {
-    [Parameter]
-    public string Interests { get; set; }
-
-    private List<ActivityOption> Activities = new List<ActivityOption>
+    private List<ActivityInfo> activities = new List<ActivityInfo>
     {
-        new ActivityOption { Name = "Hiking", InterestTags = new List<string> { "adventure", "outdoor" } },
-        new ActivityOption { Name = "Snorkeling", InterestTags = new List<string> { "water", "adventure" } },
-        new ActivityOption { Name = "City Tour", InterestTags = new List<string> { "culture", "sightseeing" } },
-        new ActivityOption { Name = "Museum Visit", InterestTags = new List<string> { "culture", "education" } },
-        new ActivityOption { Name = "Wine Tasting", InterestTags = new List<string> { "food", "drink" } },
-        new ActivityOption { Name = "Boat Ride", InterestTags = new List<string> { "water", "relax" } },
+        new ActivityInfo { Name = "Hiking", Description = "Explore scenic trails and enjoy the great outdoors." },
+        new ActivityInfo { Name = "Snorkeling", Description = "Discover underwater beauty and marine life." },
+        new ActivityInfo { Name = "City Tour", Description = "Experience the culture and landmarks of the city." },
+        new ActivityInfo { Name = "Museum Visit", Description = "Learn about history and art at local museums." },
+        new ActivityInfo { Name = "Wine Tasting", Description = "Enjoy tasting a variety of local wines." },
+        new ActivityInfo { Name = "Boat Ride", Description = "Relax and enjoy a peaceful boat ride on the water." }
     };
 
-    private List<ActivityOption> FilteredActivities;
-
-    protected override void OnParametersSet()
-    {
-        var interestsList = Interests?.Split(',').Select(i => i.Trim().ToLower()).ToList() ?? new List<string>();
-        FilteredActivities = Activities.Where(a => a.InterestTags.Any(tag => interestsList.Contains(tag))).ToList();
-    }
-
-    private void SubmitActivities()
-    {
-        var selectedActivities = FilteredActivities.Where(a => a.IsSelected).Select(a => a.Name).ToList();
-        // Handle the selected activities (e.g., save to a database, navigate to another page, etc.)
-    }
-
-    public class ActivityOption
+    private class ActivityInfo
     {
         public string Name { get; set; }
-        public List<string> InterestTags { get; set; }
-        public bool IsSelected { get; set; }
+        public string Description { get; set; }
     }
 }

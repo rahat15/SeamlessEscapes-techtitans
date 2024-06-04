@@ -1,49 +1,45 @@
 ﻿@page "/hotels"
 
-<h3>Find Hotels</h3>
+<h3>Available Hotels</h3>
 
-<p>Use the form below to search for hotels at your destination:</p>
+<p>Here is a list of hotels available in the city:</p>
 
-<EditForm Model="@hotelSearchModel" OnValidSubmit="HandleHotelSearch">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-
-    <div class="form-group">
-        <label for="destination">Destination:</label>
-        <InputText id="destination" @bind-Value="hotelSearchModel.Destination" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label for="checkIn">Check-In Date:</label>
-        <InputDate id="checkIn" @bind-Value="hotelSearchModel.CheckInDate" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label for="checkOut">Check-Out Date:</label>
-        <InputDate id="checkOut" @bind-Value="hotelSearchModel.CheckOutDate" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label for="guests">Number of Guests:</label>
-        <InputNumber id="guests" @bind-Value="hotelSearchModel.NumberOfGuests" min="1" class="form-control" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Search Hotels</button>
-</EditForm>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hotel Name</th>
+            <th>Rate Per Night</th>
+            <th>Specialties</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in hotels)
+        {
+            <tr>
+                <td>@hotel.Name</td>
+                <td>@hotel.RatePerNight</td>
+                <td>@hotel.Specialties</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 @code {
-    private HotelSearchModel hotelSearchModel = new HotelSearchModel();
-
-    private void HandleHotelSearch()
+    private List<Hotel> hotels = new List<Hotel>
     {
-        // Implement search logic here
-    }
+        new Hotel { Name = "Hotel Sunshine", RatePerNight = "$120", Specialties = "Free breakfast, Pool, Gym" },
+        new Hotel { Name = "Grand Palace Hotel", RatePerNight = "$200", Specialties = "Spa, Luxury rooms, Gourmet restaurant" },
+        new Hotel { Name = "Oceanview Resort", RatePerNight = "$150", Specialties = "Beach access, Water sports" },
+        new Hotel { Name = "Mountain Peak Inn", RatePerNight = "$100", Specialties = "Mountain views, Pet-friendly" },
+        new Hotel { Name = "City Center Hotel", RatePerNight = "$130", Specialties = "Central location, Business center" },
+        new Hotel { Name = "Lakeside Lodge", RatePerNight = "$110", Specialties = "Lakeside views" },
+        new Hotel { Name = "Heritage Hotel", RatePerNight = "$140", Specialties = "Historic building, Cultural tours, Fine dining" }
+    };
 
-    private class HotelSearchModel
+    private class Hotel
     {
-        public string Destination { get; set; }
-        public DateTime CheckInDate { get; set; }
-        public DateTime CheckOutDate { get; set; }
-        public int NumberOfGuests { get; set; } = 1;
+        public string Name { get; set; }
+        public string RatePerNight { get; set; }
+        public string Specialties { get; set; }
     }
 }
