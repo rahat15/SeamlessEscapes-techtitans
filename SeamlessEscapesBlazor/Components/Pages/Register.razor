@@ -56,13 +56,42 @@
 
 @code {
     private RegistrationModel registrationModel = new RegistrationModel();
+    string us = "nlu";
+    
     private string errorMessage;
+    
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("Component initialized.");
+        Console.WriteLine($"Initial Registration Model: Username={registrationModel.Username}, Email={registrationModel.Email}, Password={registrationModel.Password}");
+    }
 
     private async Task HandleRegistration()
     {
         try
         {
+            Console.WriteLine($"Registration Model: {us}, Username={registrationModel.Username}, Email={registrationModel.Email}, " +
+                              $"Password={registrationModel.Password}");
+            
             errorMessage = string.Empty; // Clear previous error message
+            
+            if (string.IsNullOrWhiteSpace(registrationModel.Username))
+            {
+                errorMessage = "Username is required.";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(registrationModel.Email))
+            {
+                errorMessage = "Email is required.";
+                return;
+            }
+            
+            if (string.IsNullOrWhiteSpace(registrationModel.Password))
+            {
+                errorMessage = "Password is required.";
+                return;
+            }
 
             if (registrationModel.Password != registrationModel.ConfirmPassword)
             {
@@ -85,13 +114,13 @@
 
             var newUser = new User
             {
-                Username = "blah4", 
-                Email = "blah2@email.com",
-                Password = "password3", // In a real app, make sure to hash the password
-                UserID = 4
-                    
+                Username = registrationModel.Username,
+                Email = registrationModel.Email,
+                Password = registrationModel.Password, // In a real app, make sure to hash the password
+                UserID = 6
             };
-            Console.WriteLine("Your info is:" + registrationModel.Username + registrationModel.Email + registrationModel.Password);
+
+            Console.WriteLine($"New User: {newUser.Username}, {newUser.Email}");
 
             await UserService.RegisterUserAsync(newUser);
 
@@ -105,12 +134,13 @@
         }
         catch (Exception ex)
         {
-            // Handle error
+            // Handle other exceptions
             errorMessage = $"Error registering user: {ex.Message}";
-            Console.WriteLine();
             Console.WriteLine($"Error registering user: {ex.Message}");
         }
     }
+
+
 
     private class RegistrationModel
     {
