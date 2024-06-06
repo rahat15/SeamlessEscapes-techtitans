@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+    <form name="@FormName">
+        <ChildContent>
+            @ChildContent
+        </ChildContent>
+    </form>
+</EditForm>
+
+@code {
+    [Parameter]
+    public object Model { get; set; }
+
+    [Parameter]
+    public EventCallback OnValidSubmit { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string FormName { get; set; } = "customForm"; // Default form name
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (string.IsNullOrEmpty(FormName))
+        {
+            throw new InvalidOperationException("FormName parameter is required.");
+        }
+    }
+}
