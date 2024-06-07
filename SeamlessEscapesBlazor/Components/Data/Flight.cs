@@ -5,10 +5,10 @@ namespace SeamlessEscapesBlazor.Models
 {
     public class Flight
     {
-        [Key]
-        public int Id { get; set; }
+        public int FlightId { get; set; }
 
-        [Required, StringLength(50)]
+        [Required]
+        [StringLength(50)]
         public string FlightNumber { get; set; }
 
         [StringLength(100)]

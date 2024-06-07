@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using System;
 using System.IO;
 
 namespace SeamlessEscapesBlazor.Data
@@ -10,15 +9,17 @@ namespace SeamlessEscapesBlazor.Data
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            var configuration = new ConfigurationBuilder()
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+
+            // Build configuration
+            IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            /*optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21)));*/
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new ApplicationDbContext(optionsBuilder.Options);
         }

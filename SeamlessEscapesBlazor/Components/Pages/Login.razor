@@ -1,5 +1,11 @@
 ﻿@page "/Login"
 
+@using SeamlessEscapesBlazor.Data
+@using SeamlessEscapesBlazor.Models
+@using Microsoft.EntityFrameworkCore
+
+@inject ApplicationDbContext DbContext
+
 <div class="login-page container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -11,6 +17,11 @@
                     <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="registerForm">
                         <DataAnnotationsValidator />
                         <ValidationSummary class="text-danger" />
+
+                        @if (!string.IsNullOrEmpty(errorMessage))
+                        {
+                            <div class="alert alert-danger">@errorMessage</div>
+                        }
 
                         <div class="form-group mb-3">
                             <label for="username" class="form-label">Email</label>
@@ -37,9 +48,7 @@
 
 @code {
     private LoginModel loginModel = new LoginModel();
-
-    [Inject]
-    private IJSRuntime JSRuntime { get; set; }
+    private string errorMessage;
 
     [Inject]
     private NavigationManager Navigation { get; set; }
@@ -48,23 +57,21 @@
     {
         try
         {
-            await JSRuntime.InvokeVoidAsync("firebaseAuth.signIn", loginModel.Email, loginModel.Password);
-            Console.WriteLine("User signed in successfully.");
-            Navigation.NavigateTo("/");
+            // Perform authentication logic here
+
+            // If authentication fails, set an error message
+            errorMessage = "Invalid email or password.";
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            // Handle other exceptions
+            errorMessage = $"Error: {ex.Message}";
         }
     }
 
     private class LoginModel
     {
-        //[Required]
-       // [EmailAddress]
         public string Email { get; set; }
-
-       // [Required]
         public string Password { get; set; }
     }
 }

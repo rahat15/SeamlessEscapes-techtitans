@@ -1,11 +1,8 @@
-﻿@*
-@page "/flights/"
-
-@inject FlightService FlightService
-
+﻿@page "/flights"
+@inject SeamlessEscapesBlazor.Services.FlightService FlightService
 @using SeamlessEscapesBlazor.Models
 
-<h3>Round Trip Flights from @Source to @Destination</h3>
+<h3>Available Flights</h3>
 
 @if (flights == null)
 {
@@ -13,171 +10,40 @@
 }
 else if (flights.Count == 0)
 {
-    <p>No flights available for the selected route.</p>
+    <p>No flights available.</p>
 }
 else
 {
     <table class="table">
         <thead>
-            <tr>
-                <th>Flight Number</th>
-                <th>Airline</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                <th>Description</th>
-            </tr>
+        <tr>
+            <th>Flight Number</th>
+            <th>Airline</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Description</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var flight in flights)
-            {
-                <tr>
-                    <td>@flight.FlightNumber</td>
-                    <td>@flight.Airline</td>
-                    <td>@flight.DepartureTime.ToString("g")</td>
-                    <td>@flight.ArrivalTime.ToString("g")</td>
-                    <td>@flight.Description</td>
-                </tr>
-            }
+        @foreach (var flight in flights)
+        {
+            <tr>
+                <td>@flight.FlightNumber</td>
+                <td>@flight.Airline</td>
+                <td>@flight.DepartureTime.ToString("g")</td>
+                <td>@flight.ArrivalTime.ToString("g")</td>
+                <td>@flight.Description</td>
+            </tr>
+        }
         </tbody>
     </table>
 }
 
 @code {
-    [Parameter] public string Source { get; set; }
-    [Parameter] public string Destination { get; set; }
-    [Parameter] public DateTime DepartureDate { get; set; }
-    [Parameter] public DateTime ReturnDate { get; set; }
-
     private List<Flight> flights;
 
-    protected override async Task OnParametersSetAsync()
+    protected override async Task OnInitializedAsync()
     {
-        flights = await FlightService.GetRoundTripFlightsAsync(Source, Destination, DepartureDate, ReturnDate);
-    }
-}
-*@
-
-@page "/flights"
-@inject NavigationManager Navigation
-@inject SeamlessEscapesBlazor.Services.FlightService FlightService
-@using SeamlessEscapesBlazor.Models
-
-<div class="flights-page container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h3>Add Flight</h3>
-                </div>
-                <div class="card-body">
-                    <EditForm Model="@flightModel" OnValidSubmit="HandleAddFlight" FormName="flightModel">
-                        <DataAnnotationsValidator />
-                        <ValidationSummary class="text-danger" />
-
-                        @if (!string.IsNullOrEmpty(errorMessage))
-                        {
-                            <div class="alert alert-danger">@errorMessage</div>
-                        }
-
-                        <div class="form-group mb-3">
-                            <label for="flightNumber" class="form-label">Flight Number</label>
-                            <InputText id="flightNumber" class="form-control" @bind-Value="flightModel.FlightNumber" />
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="airline" class="form-label">Airline</label>
-                            <InputText id="airline" class="form-control" @bind-Value="flightModel.Airline" />
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="departureTime" class="form-label">Departure Time</label>
-                            <InputDate id="departureTime" class="form-control" @bind-Value="flightModel.DepartureTime" />
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="arrivalTime" class="form-label">Arrival Time</label>
-                            <InputDate id="arrivalTime" class="form-control" @bind-Value="flightModel.ArrivalTime" />
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <InputText id="description" class="form-control" @bind-Value="flightModel.Description" />
-                        </div>
-
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Add Flight</button>
-                        </div>
-                    </EditForm>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@code {
-    private FlightModel flightModel = new FlightModel();
-    private string errorMessage;
-
-    private async Task HandleAddFlight()
-    {
-        try
-        {
-            errorMessage = string.Empty; // Clear previous error message
-            
-            // Validate required fields
-            if (string.IsNullOrWhiteSpace(flightModel.FlightNumber))
-            {
-                errorMessage = "Flight number is required.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(flightModel.Airline))
-            {
-                errorMessage = "Airline is required.";
-                return;
-            }
-
-            if (flightModel.DepartureTime == default)
-            {
-                errorMessage = "Departure time is required.";
-                return;
-            }
-
-            if (flightModel.ArrivalTime == default)
-            {
-                errorMessage = "Arrival time is required.";
-                return;
-            }
-
-            // Create a new flight object
-            var newFlight = new Flight
-            {
-                FlightNumber = flightModel.FlightNumber,
-                Airline = flightModel.Airline,
-                DepartureTime = flightModel.DepartureTime,
-                ArrivalTime = flightModel.ArrivalTime,
-                Description = flightModel.Description
-            };
-
-            // Add the flight using the FlightService
-            await FlightService.AddFlightAsync(newFlight);
-
-            // Navigate to a confirmation page or refresh the current page
-            Navigation.NavigateTo("/flights", forceLoad: true);
-        }
-        catch (Exception ex)
-        {
-            // Handle exceptions
-            errorMessage = $"Error adding flight: {ex.Message}";
-        }
-    }
-
-    private class FlightModel
-    {
-        public string FlightNumber { get; set; }
-        public string Airline { get; set; }
-        public DateTime DepartureTime { get; set; }
-        public DateTime ArrivalTime { get; set; }
-        public string Description { get; set; }
+        flights = await FlightService.GetAllFlightsAsync();
     }
 }
